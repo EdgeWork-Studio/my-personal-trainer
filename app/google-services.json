@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "316696138198",
+    "firebase_url": "https://my-personal-trainer-a2db3.firebaseio.com",
+    "project_id": "my-personal-trainer-a2db3",
+    "storage_bucket": "my-personal-trainer-a2db3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316696138198:android:b750f291e889eb01525477",
+        "android_client_info": {
+          "package_name": "com.example.mypersonaltrainer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "316696138198-mv3k194t3jqromlrc8i5rijaemi6tv35.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtBhDZIS01GNa7YZe2EZIGIO34Umea6QQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "316696138198-mv3k194t3jqromlrc8i5rijaemi6tv35.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
