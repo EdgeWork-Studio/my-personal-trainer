@@ -10,7 +10,7 @@ public class User {
     public User(FirebaseUser account, String activityLevel, Boolean man, Double weight, Double height, Long age){
         this.userID = account.getUid();
         this.email = account.getEmail();
-        this.displayName = account.getEmail();
+        this.displayName = account.getDisplayName();
         this.activityLevel = activityLevel;
         this.man = man;
         this.weight = weight; //in kg
@@ -21,7 +21,7 @@ public class User {
     public User(FirebaseUser account, String activityLevel, Boolean man, Double weight, Double height, Double bodyFat, Long age){
         this.userID = account.getUid();
         this.email = account.getEmail();
-        this.displayName = account.getEmail();
+        this.displayName = account.getDisplayName();
         this.activityLevel = activityLevel;
         this.man = man;
         this.weight = weight; //in kg
