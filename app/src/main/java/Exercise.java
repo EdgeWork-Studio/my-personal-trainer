@@ -6,12 +6,12 @@ public class Exercise
     private String type; //AEROBIC,FLEXIBILITY,STRENGTH,BALANCE ...enum class??
     private String primaryMuscleGroup; //...enum class?
     private String secondaryMuscleGroup; //...enum class?
-    private int difficulty; //...enum class?
+    private long difficulty; //...enum class?
 
 
 
 
-    public Exercise(String name,int avgDuration, String type, String primaryMuscleGroup, String secondaryMuscleGroup)
+    public Exercise(String name, int avgDuration, String type, String primaryMuscleGroup, String secondaryMuscleGroup, long difficulty)
     {
         this.name = name;
         this.avgDuration = avgDuration;
@@ -42,7 +42,7 @@ public class Exercise
         return this.secondaryMuscleGroup;
     }
 
-    public int getDifficulty(){
+    public long getDifficulty(){
         return this.difficulty;
     }
 

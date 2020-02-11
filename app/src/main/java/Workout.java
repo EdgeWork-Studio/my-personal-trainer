@@ -5,11 +5,14 @@ public class Workout {
     //private int totalTime=0;
 
 
-    public Workout(ArrayList<Exercise> exercises, String day)
+    public Workout()
     {
-        this.exercises = exercises;
+        this.exercises = new ArrayList<>();
     }
 
+    public void addExcercise(Exercise e){
+        exercises.add(e);
+    }
 
     public String toString(){
         StringBuilder allExercises = new StringBuilder();
