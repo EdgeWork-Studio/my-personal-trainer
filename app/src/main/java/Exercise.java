@@ -3,7 +3,8 @@ public class Exercise
 {
     private String name;
     private int avgDuration; //min
-    private String type; //AEROBIC,FLEXIBILITY,STRENGTH,BALANCE ...enum class??
+    private String type; //AEROBIC,FLEXIBILITY,POWER,BALANCE ...enum class??
+    private String locationType; //GYM, BODY WEIGHT, ETC.
     private String primaryMuscleGroup; //...enum class?
     private String secondaryMuscleGroup; //...enum class?
     private long difficulty; //...enum class?
@@ -44,6 +45,10 @@ public class Exercise
 
     public long getDifficulty(){
         return this.difficulty;
+    }
+
+    public String getLocationType(){
+        return this.locationType;
     }
 
     public String toString(){

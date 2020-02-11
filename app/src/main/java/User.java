@@ -1,28 +1,30 @@
 import com.google.firebase.auth.FirebaseUser;
 
 public class User {
-    private String userID, email, displayName, activityLevel;
+    private String userID, email, displayName, activityLevel, experience; //BEGINNER, NOVICE, INTERMEDIATE, ADVANCED, ELITE
     private Boolean man;
     private Double weight, height, bodyFat = 0.0;
     private Long age, tdee, days, time;
 
     public User(){}
-    public User(FirebaseUser account, String activityLevel, Boolean man, Double weight, Double height, Long age, Long days, Long time){
+    public User(FirebaseUser account, String activityLevel, String experience, Boolean man, Double weight, Double height, Long age, Long days, Long time){
         this.userID = account.getUid();
         this.email = account.getEmail();
         this.displayName = account.getDisplayName();
         this.activityLevel = activityLevel;
+        this.experience = experience;
         this.man = man;
         this.weight = weight; //in kg
         this.height = height; //in cm
         this.age = age;
         this.tdee = calculateTDEE();
     }
-    public User(FirebaseUser account, String activityLevel, Boolean man, Double weight, Double height, Double bodyFat, Long age, Long days, Long time){
+    public User(FirebaseUser account, String activityLevel, String experience, Boolean man, Double weight, Double height, Double bodyFat, Long age, Long days, Long time){
         this.userID = account.getUid();
         this.email = account.getEmail();
         this.displayName = account.getDisplayName();
         this.activityLevel = activityLevel;
+        this.experience = experience;
         this.man = man;
         this.weight = weight; //in kg
         this.height = height; //in cm
@@ -87,7 +89,9 @@ public class User {
     public void setTime(Long time) {
         this.time = time;
     }
-
+    public void setExperience(String experience){
+        this.experience = experience;
+    }
     public String getUserID() {
         return userID;
     }
@@ -123,5 +127,8 @@ public class User {
     }
     public Long getTime() {
         return time;
+    }
+    public String getExperience() {
+        return experience;
     }
 }
