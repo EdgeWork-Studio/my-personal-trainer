@@ -7,6 +7,11 @@ public class User {
     private Long age, tdee, days, time;
 
     public User(){}
+    public User(FirebaseUser account){
+        this.userID = account.getUid();
+        this.email = account.getEmail();
+        this.displayName = account.getDisplayName();
+    }
     public User(FirebaseUser account, String activityLevel, String experience, Boolean man, Double weight, Double height, Long age, Long days, Long time){
         this.userID = account.getUid();
         this.email = account.getEmail();

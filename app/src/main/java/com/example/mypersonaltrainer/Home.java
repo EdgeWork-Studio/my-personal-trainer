@@ -26,4 +26,9 @@ public class Home extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void goToSetup1(View view){
+        Intent i = new Intent(this, Setup1.class);
+        startActivity(i);
+    }
+
 }
