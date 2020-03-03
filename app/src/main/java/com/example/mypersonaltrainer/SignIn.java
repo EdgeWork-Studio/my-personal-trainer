@@ -69,6 +69,16 @@ public class SignIn extends AppCompatActivity {
         }
     }
 
+    public void signOut(View view) {
+        gsc.signOut()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        // ...
+                    }
+                });
+    }
+
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d("shad", "firebaseAuthWithGoogle:" + acct.getId());
 
@@ -81,12 +91,11 @@ public class SignIn extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("sad", "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
+                            goToSetup();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("hsa", "signInWithCredential:failure", task.getException());
                             Toast.makeText(getApplicationContext(), "Authentication Failed.", Toast.LENGTH_SHORT).show();
-                            updateUI(null);
                         }
 
                         // ...
@@ -97,5 +106,10 @@ public class SignIn extends AppCompatActivity {
     private void updateUI(FirebaseUser x){
         TextView tv = findViewById(R.id.textView);
         tv.setText(x.getUid());
+    }
+
+    private void goToSetup(){
+        Intent i = new Intent(this, BiometricCollection.class);
+        startActivity(i);
     }
 }

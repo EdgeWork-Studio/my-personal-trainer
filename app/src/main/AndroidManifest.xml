@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".BiometricCollection"></activity>
         <activity
             android:name=".Setup1"
             android:label="@string/title_activity_setup1"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SignIn" />
         <activity
             android:name=".ui.login.SignIn"
