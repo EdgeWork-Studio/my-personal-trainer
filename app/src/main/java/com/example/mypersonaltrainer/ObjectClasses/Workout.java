@@ -1,3 +1,5 @@
+package com.example.mypersonaltrainer.ObjectClasses;
+
 import java.util.ArrayList;
 public class Workout {
 
@@ -16,7 +18,7 @@ public class Workout {
 
     public String toString(){
         StringBuilder allExercises = new StringBuilder();
-        allExercises.append("Workout:\n");
+        allExercises.append("com.example.mypersonaltrainer.ObjectClasses.Workout:\n");
 
         for(Exercise ex : exercises)
         {

@@ -1,5 +1,6 @@
 package com.example.mypersonaltrainer;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,18 +10,26 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-public class Setup1 extends AppCompatActivity {
+import com.example.mypersonaltrainer.ObjectClasses.User;
+import com.google.gson.Gson;
 
+public class WorkoutPrefCollection extends AppCompatActivity {
+    private User user;
     private final String GYM = "Gym";
     private final String BODY = "Body Weight";
     private final String FREE = "Free Weights";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setup1);
+        setContentView(R.layout.activity_workout_pref_collection);
         final Spinner trainingLocation = (Spinner)findViewById(R.id.spn_trainloc);
         final Spinner workoutType = findViewById(R.id.spn_worktype);
         final Spinner workoutDays = findViewById(R.id.spn_workday);
+
+        SharedPreferences mPrefs = getPreferences(MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = mPrefs.getString("user", "");
+        user = gson.fromJson(json, User.class);
 
         trainingLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {

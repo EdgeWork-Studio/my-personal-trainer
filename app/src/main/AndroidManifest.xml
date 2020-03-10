@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".BiometricCollection"></activity>
         <activity
-            android:name=".Setup1"
+            android:name=".WorkoutPrefCollection"
             android:label="@string/title_activity_setup1"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SignIn" />

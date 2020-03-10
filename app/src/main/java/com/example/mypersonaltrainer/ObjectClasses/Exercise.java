@@ -1,3 +1,4 @@
+package com.example.mypersonaltrainer.ObjectClasses;
 
 public class Exercise
 {
@@ -52,7 +53,7 @@ public class Exercise
     }
 
     public String toString(){
-        return ("Exercise: " + this.name + "Duration: " + this.avgDuration);
+        return ("com.example.mypersonaltrainer.ObjectClasses.Exercise: " + this.name + "Duration: " + this.avgDuration);
     }
 
 

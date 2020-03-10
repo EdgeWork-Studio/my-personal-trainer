@@ -1,10 +1,12 @@
+package com.example.mypersonaltrainer.ObjectClasses;
+
 import com.google.firebase.auth.FirebaseUser;
 
 public class User {
     private String userID, email, displayName, activityLevel, experience; //BEGINNER, NOVICE, INTERMEDIATE, ADVANCED, ELITE
     private Boolean man;
-    private Double weight, height, bodyFat = 0.0;
-    private Long age, tdee, days, time;
+    private Double weight, height, bodyFat = 0.0; //weight in kg, height in cm
+    private Long age, tdee, days;
 
     public User(){}
     public User(FirebaseUser account){
@@ -12,7 +14,7 @@ public class User {
         this.email = account.getEmail();
         this.displayName = account.getDisplayName();
     }
-    public User(FirebaseUser account, String activityLevel, String experience, Boolean man, Double weight, Double height, Long age, Long days, Long time){
+    public User(FirebaseUser account, String activityLevel, String experience, Boolean man, Double weight, Double height, Long age, Long days){
         this.userID = account.getUid();
         this.email = account.getEmail();
         this.displayName = account.getDisplayName();
@@ -24,7 +26,7 @@ public class User {
         this.age = age;
         this.tdee = calculateTDEE();
     }
-    public User(FirebaseUser account, String activityLevel, String experience, Boolean man, Double weight, Double height, Double bodyFat, Long age, Long days, Long time){
+    public User(FirebaseUser account, String activityLevel, String experience, Boolean man, Double weight, Double height, Double bodyFat, Long age, Long days){
         this.userID = account.getUid();
         this.email = account.getEmail();
         this.displayName = account.getDisplayName();
@@ -38,7 +40,7 @@ public class User {
         this.tdee = calculateTDEE();
     }
 
-    private Long calculateTDEE(){
+    private Long calculateTDEE(){ //weight in kg, height in pounds
         double bmr = 0, adjustedWeight;
 
         if(bodyFat >= 1) adjustedWeight = weight * ((100.0 - bodyFat) / 100);
@@ -91,9 +93,6 @@ public class User {
     public void setDays(Long days) {
         this.days = days;
     }
-    public void setTime(Long time) {
-        this.time = time;
-    }
     public void setExperience(String experience){
         this.experience = experience;
     }
@@ -129,9 +128,6 @@ public class User {
     }
     public Long getDays() {
         return days;
-    }
-    public Long getTime() {
-        return time;
     }
     public String getExperience() {
         return experience;
