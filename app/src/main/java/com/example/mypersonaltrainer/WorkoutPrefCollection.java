@@ -1,35 +1,38 @@
 package com.example.mypersonaltrainer;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.mypersonaltrainer.ObjectClasses.User;
 import com.google.gson.Gson;
 
+import org.w3c.dom.Text;
+
 public class WorkoutPrefCollection extends AppCompatActivity {
     private User user;
+    private SharedPreferences mPrefs;
     private final String GYM = "Gym";
     private final String BODY = "Body Weight";
     private final String FREE = "Free Weights";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_pref_collection);
-        final Spinner trainingLocation = (Spinner)findViewById(R.id.spn_trainloc);
+        final Spinner trainingLocation = findViewById(R.id.spn_trainloc);
         final Spinner workoutType = findViewById(R.id.spn_worktype);
-        final Spinner workoutDays = findViewById(R.id.spn_workday);
-
-        SharedPreferences mPrefs = getPreferences(MODE_PRIVATE);
-        Gson gson = new Gson();
-        String json = mPrefs.getString("user", "");
-        user = gson.fromJson(json, User.class);
+        mPrefs = getSharedPreferences("user_data", Context.MODE_PRIVATE);
 
         trainingLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -76,6 +79,28 @@ public class WorkoutPrefCollection extends AppCompatActivity {
             }
             public void onNothingSelected(AdapterView<?> adapterView) { return; }
         });
+    }
+
+    public void collectWorkoutPrefs(View view){
+        String trainingLocation, workoutType, temp;
+        Integer days;
+        trainingLocation = ((Spinner) findViewById(R.id.spn_trainloc)).getSelectedItem().toString();
+        workoutType = ((Spinner) findViewById(R.id.spn_worktype)).getSelectedItem().toString();
+        temp = ((Spinner) findViewById(R.id.spn_workday)).getSelectedItem().toString();
+        days = Integer.valueOf(temp);
+        Gson gson = new Gson();
+        String json = mPrefs.getString("user", "User not found");
+        user = gson.fromJson(json, User.class);
+        user.setTrainingLocation(trainingLocation);
+        user.setWorkoutType(workoutType);
+        user.setDays(days);
+        //user.setTdee(user.calculateTDEE(user.getWeight(), user.getHeight(), Integer.parseInt(user.getAge().toString()), user.getBodyFat(), user.getMan(), user.getActivityLevel()));
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        json = gson.toJson(user); // myObject - instance of MyObject
+        prefsEditor.putString("user", json);
+        prefsEditor.commit();
+        Intent i = new Intent(this, MuscleFocus.class);
+        startActivity(i);
     }
 
 }

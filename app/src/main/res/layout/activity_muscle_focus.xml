@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MuscleFocus">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radio_shoulders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shoulders" />
+
+            <RadioButton
+                android:id="@+id/radio_chest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chest" />
+
+            <RadioButton
+                android:id="@+id/radio_arms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Arms" />
+
+            <RadioButton
+                android:id="@+id/radio_back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back" />
+
+            <RadioButton
+                android:id="@+id/radio_abs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Abs" />
+        </RadioGroup>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/submit" />
+</LinearLayout>

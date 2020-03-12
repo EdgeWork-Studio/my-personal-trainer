@@ -1,8 +1,10 @@
 package com.example.mypersonaltrainer;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -17,26 +19,26 @@ import com.google.gson.Gson;
 
 public class BiometricCollection extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    SharedPreferences mPrefs;
+    private SharedPreferences mPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_biometric_collection);
         mAuth = FirebaseAuth.getInstance();
-        mPrefs = getPreferences(MODE_PRIVATE);
+        mPrefs = getSharedPreferences("user_data", Context.MODE_PRIVATE);
     }
 
     public void collectBiometrics(View view){
         String activityLevel, experience, temp;
-        Long age;
+        Integer age;
         Double weight, height, bodyfat;
         Boolean man;
         man = ((RadioButton) findViewById(R.id.radio_male)).isChecked();
         activityLevel = ((Spinner) findViewById(R.id.spn_activity)).getSelectedItem().toString();
         experience = ((Spinner) findViewById(R.id.spn_experience)).getSelectedItem().toString();
         temp = ((TextView) findViewById(R.id.input_age)).getText().toString();
-        age = Long.getLong(temp);
+        age = Integer.valueOf(temp);
         temp = ((TextView) findViewById(R.id.input_weight)).getText().toString();
         weight = Double.valueOf(temp);
         if(((RadioButton) findViewById(R.id.radio_pounds)).isChecked()) weight = weight * 0.45359239;
@@ -47,10 +49,10 @@ public class BiometricCollection extends AppCompatActivity {
         if(!temp.equals(""))
             bodyfat = Double.valueOf(temp);
         else bodyfat = -1.0;
-        User user = new User(mAuth.getCurrentUser(), activityLevel, experience, man, weight, height, bodyfat, age, new Long(0));
+        User user = new User(mAuth.getCurrentUser(), activityLevel, experience, man, weight, height, bodyfat, age, 0);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         Gson gson = new Gson();
-        String json = gson.toJson(user); // myObject - instance of MyObject
+        String json = gson.toJson(user);
         prefsEditor.putString("user", json);
         prefsEditor.commit();
         Intent i = new Intent(this, WorkoutPrefCollection.class);
