@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 public class Workout {
 
     private ArrayList<Exercise> exercises;
@@ -26,6 +27,8 @@ public class Workout {
         allExercises.append("\n");
         return(allExercises.toString());
     }
-
+    public void shuffleList(){
+        Collections.shuffle(exercises);
+    }
 
 }
