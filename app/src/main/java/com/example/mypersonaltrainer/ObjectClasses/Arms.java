@@ -1,3 +1,5 @@
+package com.example.mypersonaltrainer.ObjectClasses;
+
 public class Arms extends Exercise {
     public Arms(String name, int avgDuration, String type, String primaryMuscleGroup, String secondaryMuscleGroup, long difficulty)
     {

@@ -1,17 +1,97 @@
 package com.example.mypersonaltrainer.ObjectClasses;
 
+import com.example.mypersonaltrainer.ObjectClasses.Aerobic;
+import com.example.mypersonaltrainer.ObjectClasses.Arms;
+import com.example.mypersonaltrainer.ObjectClasses.Back;
+import com.example.mypersonaltrainer.ObjectClasses.Chest;
+import com.example.mypersonaltrainer.ObjectClasses.Legs;
+
 import java.util.ArrayList;
-import java.util.HashSet;
 
 public class WorkoutGenerator {
 
-    public ArrayList<Workout> generateWorkout(User user, HashSet<Exercise> exercises){
-        ArrayList<Workout> workouts = new ArrayList<>();
+    private ArrayList<Workout> routine;
+    private ArrayList<Chest> chestBank;
+    private ArrayList<Legs> legBank;
+    private ArrayList<Back> backBank;
+    private ArrayList<Arms> armBank;
+    private ArrayList<Aerobic> aeroBank;
+    // private static int numExercises = 8;
 
-        return workouts;
+    public WorkoutGenerator() {
+        routine = new ArrayList<Workout>();
+        chestBank = new ArrayList<Chest>();
+        legBank = new ArrayList<Legs>();
+        backBank = new ArrayList<Back>();
+        armBank = new ArrayList<Arms>();
+        aeroBank = new ArrayList<Aerobic>();
     }
 
-    private String getSetsAndReps(User user, Exercise e){
+    private Workout getChestTri(String... goal) {
+        int numChestEx = 4;
+        int numTricepsEx = 4;
+        int chestCount = 0, tricepsCount = 0;
+        Workout w = new Workout();
+
+        if (goal[0].equals("com.example.mypersonaltrainer.ObjectClasses.Chest")) {
+            numTricepsEx--;
+            numChestEx++;
+        }
+        if (goal[0].equals("Triceps")) {
+            numTricepsEx++;
+            numChestEx--;
+        }
+        for (Exercise e : chestBank) {
+            if (chestCount == numChestEx)
+                break;
+            if (e.getPrimaryMuscleGroup().equals("Pectorals")) {
+                w.addExcercise(e);
+                chestCount++;
+            }
+        }
+
+        for (Exercise e : armBank) {
+            if (tricepsCount == numTricepsEx)
+                break;
+            if (e.getPrimaryMuscleGroup().equals("Triceps")) {
+                w.addExcercise(e);
+                tricepsCount++;
+            }
+        }
+        w.shuffleList();
+        return w;
+    }
+
+    private Workout getLegs(String... goal) {
+        int numQuad = 3, quadCount = 0;
+        int numHam = 3, hamCount = 0;
+        int numCalf = 2, calfCount = 0;
+
+        Workout w = new Workout();
+
+        for(Exercise e: legBank){
+
+            if (e.getPrimaryMuscleGroup().equals("Quadriceps") && numQuad != quadCount){
+                w.addExcercise(e);
+                quadCount++;
+            }
+            if (e.getPrimaryMuscleGroup().equals("Hamstring") && numHam != hamCount){
+                w.addExcercise(e);
+                hamCount++;
+            }
+            if (e.getPrimaryMuscleGroup().equals("Calf") && numCalf != calfCount){
+                w.addExcercise(e);
+                calfCount++;
+            }
+
+            if(numQuad == quadCount && numHam == hamCount && numCalf == calfCount)
+                break;
+        }
+        w.shuffleList();
+        return w;
+    }
+
+        private String getSetsAndReps(User user, Exercise e){
         String experience = user.getExperience();
         if(e.getLocationType().equals("GYM")){
             if(e.getType().equals("POWER")){
