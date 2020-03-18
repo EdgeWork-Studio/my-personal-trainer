@@ -1,7 +1,8 @@
 package com.example.mypersonaltrainer.ObjectClasses;
 
-public class Exercise
+public abstract class Exercise
 {
+    // instance variables - replace the example below with your own
     private String name;
     private int avgDuration; //min
     private String type; //AEROBIC,FLEXIBILITY,POWER,BALANCE ...enum class??
@@ -16,7 +17,6 @@ public class Exercise
     public Exercise(String name, int avgDuration, String type, String primaryMuscleGroup, String secondaryMuscleGroup, long difficulty)
     {
         this.name = name;
-        this.avgDuration = avgDuration;
         this.type = type;
         this.primaryMuscleGroup = primaryMuscleGroup;
         this.secondaryMuscleGroup = secondaryMuscleGroup;
