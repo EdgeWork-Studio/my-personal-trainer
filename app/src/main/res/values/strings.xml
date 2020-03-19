@@ -25,6 +25,7 @@
     <string name="sex">Sex</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="sign_out">Sign Out</string>
 
     <string name="first_greet">Let\'s get to know you better!</string>
 

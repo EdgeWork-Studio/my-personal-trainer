@@ -40,11 +40,8 @@ public class SignIn extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
     }
     public void signIn(View view) {
-        TextView tv = findViewById(R.id.textView);
-        tv.setText("test");
         Intent signInIntent = gsc.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
@@ -69,16 +66,6 @@ public class SignIn extends AppCompatActivity {
         }
     }
 
-    public void signOut(View view) {
-        gsc.signOut()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        // ...
-                    }
-                });
-    }
-
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d("shad", "firebaseAuthWithGoogle:" + acct.getId());
 
@@ -101,11 +88,6 @@ public class SignIn extends AppCompatActivity {
                         // ...
                     }
                 });
-    }
-
-    private void updateUI(FirebaseUser x){
-        TextView tv = findViewById(R.id.textView);
-        tv.setText(x.getUid());
     }
 
     private void goToSetup(){

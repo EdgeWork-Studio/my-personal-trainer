@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.mypersonaltrainer.ObjectClasses.Constants;
 import com.example.mypersonaltrainer.ObjectClasses.User;
 import com.google.gson.Gson;
 
@@ -22,9 +23,6 @@ import org.w3c.dom.Text;
 public class WorkoutPrefCollection extends AppCompatActivity {
     private User user;
     private SharedPreferences mPrefs;
-    private final String GYM = "Gym";
-    private final String BODY = "Body Weight";
-    private final String FREE = "Free Weights";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +37,13 @@ public class WorkoutPrefCollection extends AppCompatActivity {
                 String sel1 = trainingLocation.getSelectedItem().toString();
                 String[] types = null;
                 switch (sel1){
-                    case GYM:
+                    case Constants.GYM:
                         types = getResources().getStringArray(R.array.gym_options);
                         break;
-                    case BODY:
+                    case Constants.BODY:
                         types = getResources().getStringArray(R.array.body_options);
                         break;
-                    case FREE:
+                    case Constants.FREE:
                         types = getResources().getStringArray(R.array.free_options);
                         break;
                 }
@@ -62,13 +60,13 @@ public class WorkoutPrefCollection extends AppCompatActivity {
                 String sel1 = trainingLocation.getSelectedItem().toString();
                 String[] days = null;
                 switch (sel1){
-                    case GYM:
+                    case Constants.GYM:
                         days = getResources().getStringArray(R.array.gym_options);
                         break;
-                    case BODY:
+                    case Constants.BODY:
                         days = getResources().getStringArray(R.array.body_options);
                         break;
-                    case FREE:
+                    case Constants.FREE:
                         days = getResources().getStringArray(R.array.free_options);
                         break;
                 }

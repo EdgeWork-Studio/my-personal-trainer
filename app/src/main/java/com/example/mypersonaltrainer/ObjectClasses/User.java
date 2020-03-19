@@ -3,13 +3,12 @@ package com.example.mypersonaltrainer.ObjectClasses;
 import com.google.firebase.auth.FirebaseUser;
 
 public class User {
-    private String userID, email, displayName, activityLevel, experience, workoutType, trainingLocation, priorityMuscles; //BEGINNER, NOVICE, INTERMEDIATE, ADVANCED, ELITE
+    private String userID, email, displayName, activityLevel, experience, workoutType, trainingLocation, muscleFocus; //BEGINNER, NOVICE, INTERMEDIATE, ADVANCED, ELITE
     private Boolean man;
     private Double weight, height, bodyFat = 0.0; //weight in kg, height in cm
     private Integer age, tdee, days;
 
-    private final String SEDENTARY = "Sedentary", LIGHTLY = "Light Exercise (1-2 days/week)", MODERATELY = "Moderate Exercise (3-5 days/week)";
-    private final String VERY = "Heavy Exercise (6-7 days/week)", EXTREMELY = "Athlete (2x /day)";
+
 
     public User(){}
     public User(FirebaseUser account){
@@ -55,11 +54,11 @@ public class User {
         else bmr = 655 + (9.6 * adjustedWeight) + (1.8 * height) - (4.7 * age);
 
         switch (activityLevel){
-            case SEDENTARY: bmr = bmr * 1.2;
-            case LIGHTLY: bmr = bmr * 1.375;
-            case MODERATELY: bmr = bmr * 1.55;
-            case VERY: bmr = bmr * 1.725;
-            case EXTREMELY: bmr = bmr * 1.9;
+            case Constants.SEDENTARY: bmr = bmr * 1.2;
+            case Constants.LIGHTLY: bmr = bmr * 1.375;
+            case Constants.MODERATELY: bmr = bmr * 1.55;
+            case Constants.VERY: bmr = bmr * 1.725;
+            case Constants.EXTREMELY: bmr = bmr * 1.9;
         }
         returnValue = Integer.valueOf(((Long) (Math.round(bmr))).toString());
         return returnValue;
@@ -101,17 +100,23 @@ public class User {
     public void setExperience(String experience){
         this.experience = experience;
     }
-    public String getWorkoutType() {
-        return workoutType;
-    }
     public void setWorkoutType(String workoutType) {
         this.workoutType = workoutType;
     }
-    public String getTrainingLocation() {
-        return trainingLocation;
-    }
     public void setTrainingLocation(String trainingLocation) {
         this.trainingLocation = trainingLocation;
+    }
+    public String getMuscleFocus() {
+        return muscleFocus;
+    }
+    public void setMuscleFocus(String muscleFocus) {
+        this.muscleFocus = muscleFocus;
+    }
+    public String getWorkoutType() {
+        return workoutType;
+    }
+    public String getTrainingLocation() {
+        return trainingLocation;
     }
     public String getUserID() {
         return userID;
@@ -160,6 +165,7 @@ public class User {
                 ", experience='" + experience + '\'' +
                 ", workoutType='" + workoutType + '\'' +
                 ", trainingLocation='" + trainingLocation + '\'' +
+                ", muscleFocus='" + muscleFocus + '\'' +
                 ", man=" + man +
                 ", weight=" + weight +
                 ", height=" + height +
