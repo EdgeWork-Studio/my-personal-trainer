@@ -1,9 +1,8 @@
 
-public abstract class Exercise
+public class Exercise
 {
     // instance variables - replace the example below with your own
     private String name;
-    private int avgDuration; //min
     private String type; //AEROBIC,FLEXIBILITY,POWER,BALANCE ...enum class??
     private String locationType; //GYM, BODY WEIGHT, ETC.
     private String primaryMuscleGroup; //...enum class?
@@ -13,7 +12,7 @@ public abstract class Exercise
 
 
 
-    public Exercise(String name, int avgDuration, String type, String primaryMuscleGroup, String secondaryMuscleGroup, long difficulty)
+    public Exercise(String name, String type, String primaryMuscleGroup, String secondaryMuscleGroup, long difficulty)
     {
         this.name = name;
         this.type = type;
@@ -25,10 +24,6 @@ public abstract class Exercise
 
     public String getName(){
         return this.name;
-    }
-
-    public int getAvgDuration(){
-        return this.avgDuration;
     }
 
     public String getType(){
@@ -52,7 +47,7 @@ public abstract class Exercise
     }
 
     public String toString(){
-        return ("Exercise: " + this.name + "Duration: " + this.avgDuration);
+        return ("Exercise: " + this.name +"\n");
     }
 
 

@@ -1,34 +1,45 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Collections;
-public class Workout {
 
-    private ArrayList<Exercise> exercises;
-    //private int totalTime=0;
-
-
+public class Workout
+{
+    private String title;
+    private List<Exercise> exercises;
     public Workout()
     {
-        this.exercises = new ArrayList<>();
+        exercises = new ArrayList<Exercise>();
     }
 
-    public void addExcercise(Exercise e){
+    public Workout(ArrayList<Exercise> exercises, String title){
+        this.exercises = exercises;
+        this.title = title;
+    }
+
+
+    public void addExercise(Exercise e)
+    {
         exercises.add(e);
     }
 
+    public void setTitle(String title){
+        this.title = title;
+    }
+
+    public List getWorkout()
+    {
+        return exercises;
+    }
+
     public String toString(){
-        StringBuilder allExercises = new StringBuilder();
-        allExercises.append("Workout:\n");
+        String result = title + "\n";
+        for(Exercise e: exercises)
+            result += e.toString();
 
-        for(Exercise ex : exercises)
-        {
-            allExercises.append(ex.toString() + "\n");
-        }
+        result += "\n";
+        return result;
+    }
 
-        allExercises.append("\n");
-        return(allExercises.toString());
-    }
-    public void shuffleList(){
-        Collections.shuffle(exercises);
-    }
+
 
 }
