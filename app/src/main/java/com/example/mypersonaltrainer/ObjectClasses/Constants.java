@@ -2,9 +2,9 @@ package com.example.mypersonaltrainer.ObjectClasses;
 
 public class Constants {
     public final static String SEDENTARY = "Sedentary";
-    public final static String LIGHTLY = "Light Exercise (1-2 days/week)";
-    public final static String MODERATELY = "Moderate Exercise (3-5 days/week)";
-    public final static String VERY = "Heavy Exercise (6-7 days/week)";
+    public final static String LIGHTLY = "Light com.example.mypersonaltrainer.ObjectClasses.Exercise (1-2 days/week)";
+    public final static String MODERATELY = "Moderate com.example.mypersonaltrainer.ObjectClasses.Exercise (3-5 days/week)";
+    public final static String VERY = "Heavy com.example.mypersonaltrainer.ObjectClasses.Exercise (6-7 days/week)";
     public final static String EXTREMELY = "Athlete (2x /day)";
     public final static String GYM = "Gym";
     public final static String BODY = "Body Weight";

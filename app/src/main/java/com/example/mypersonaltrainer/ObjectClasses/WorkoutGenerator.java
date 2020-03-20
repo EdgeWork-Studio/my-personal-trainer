@@ -1,5 +1,7 @@
+package com.example.mypersonaltrainer.ObjectClasses;
+
 import java.util.ArrayList;
-import java.util.Collections;
+
 public class WorkoutGenerator {
     private ExerciseBank eBank;
     private ArrayList<Workout> routine;

@@ -1,3 +1,4 @@
+package com.example.mypersonaltrainer.ObjectClasses;
 
 public class Exercise
 {
@@ -47,7 +48,7 @@ public class Exercise
     }
 
     public String toString(){
-        return ("Exercise: " + this.name +"\n");
+        return ("com.example.mypersonaltrainer.ObjectClasses.Exercise: " + this.name +"\n");
     }
 
 

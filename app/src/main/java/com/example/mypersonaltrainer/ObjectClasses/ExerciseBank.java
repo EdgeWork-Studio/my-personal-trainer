@@ -1,3 +1,5 @@
+package com.example.mypersonaltrainer.ObjectClasses;
+
 import java.util.ArrayList;
 import java.util.Random;
 public class ExerciseBank
@@ -33,10 +35,10 @@ public class ExerciseBank
         pectorals = new ArrayList<Exercise>();
         pectorals.add(new Exercise("Decline Dumbbell press", "Strength", "Pectorals", "Triceps",9));
         pectorals.add(new Exercise("Incline Dumbbell press",  "Strength", "Pectorals", "Triceps",9));
-        pectorals.add(new Exercise("Dumbbell Flye",  "Strength", "Pectorals", "Deltoids",9));
+        pectorals.add(new Exercise("Dumbbell Flye",  "Hypertrophy", "Pectorals", "Deltoids",9));
         pectorals.add(new Exercise("Landmine Press", "Strength", "Pectorals", "Triceps",9));
         pectorals.add(new Exercise("Barbell Press", "Strength", "Pectorals", "Triceps",9));
-        pectorals.add(new Exercise("Cable fly", "Strength", "Pectorals", "Triceps",9));
+        pectorals.add(new Exercise("Cable fly", "Hypertrophy", "Pectorals", "Triceps",9));
     }
 
     private void initBack(){
@@ -56,7 +58,7 @@ public class ExerciseBank
         quadriceps.add(new Exercise("Romanian Deadlift", "Strength", "Glutes", "Quadriceps",10));
         quadriceps.add(new Exercise("Dumbbell Stepup", "Strength","Quadriceps", "Glutes",10));
         quadriceps.add(new Exercise("Leg Press", "Strength", "Quadriceps", "Glutes",10));
-        quadriceps.add(new Exercise("Barbell Front Squat", "Quadriceps", "Glutes", "N/A",10));
+        quadriceps.add(new Exercise("Barbell Front Squat", "Hypertrophy", "Quadriceps", "Glutes",10));
         quadriceps.add(new Exercise("Barbell Box Squat", "Strength", "Quadriceps", "Glutes",10));
         quadriceps.add(new Exercise("Leg Extension", "Strength", "Quadriceps", "Glutes",10));
     }
