@@ -1,5 +1,6 @@
 package com.example.mypersonaltrainer.ObjectClasses;
 
+
 public class Exercise
 {
     // instance variables - replace the example below with your own
@@ -48,7 +49,7 @@ public class Exercise
     }
 
     public String toString(){
-        return ("com.example.mypersonaltrainer.ObjectClasses.Exercise: " + this.name +"\n");
+        return ("Exercise: " + this.name +"\n");
     }
 
 
