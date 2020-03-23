@@ -1,5 +1,7 @@
 package com.example.mypersonaltrainer.ObjectClasses;
 
+import com.example.mypersonaltrainer.ObjectClasses.Constants;
+
 import java.util.ArrayList;
 
 public class WorkoutGenerator {
@@ -28,90 +30,120 @@ public class WorkoutGenerator {
 
     private String getSetsAndReps(User user, Exercise e){
         String experience = user.getExperience();
-        if(e.getLocationType().equals("GYM")){
-            if(e.getType().equals("POWER")){
+        if(e.getLocationType().equals(Constants.GYM)){
+            if(e.getType().equals(Constants.POWER)){
                 switch (experience) {
-                    case "BEGINNER":
+                    case Constants.BEGIN:
                         return "3x8";
-                    case "NOVICE":
+                    case Constants.NOVICE:
                         return "3x5";
-                    case "INTERMEDIATE":
+                    case Constants.INTER:
                         return "4x5";
-                    case "ADVANCED":
+                    case Constants.ADVAN:
                         return "5x5";
-                    case "ELITE":
+                    case Constants.ELITE:
                         return "5x5";
                 }
             }
-            else if(e.getType().equals("HYPERTROPHY")){
+            else if(e.getType().equals(Constants.HYPER)){
                 switch (experience) {
-                    case "BEGINNER":
+                    case Constants.BEGIN:
                         return "3x10";
-                    case "NOVICE":
+                    case Constants.NOVICE:
                         return "3x12";
-                    case "INTERMEDIATE":
+                    case Constants.INTER:
                         return "4x12";
-                    case "ADVANCED":
+                    case Constants.ADVAN:
                         return "4x12";
-                    case "ELITE":
+                    case Constants.ELITE:
                         return "4x12";
                 }
             }
-            else if(e.getType().equals("ENDURANCE")) {
+            else if(e.getType().equals(Constants.ENDU)) {
                 switch (experience) {
-                    case "BEGINNER":
+                    case Constants.BEGIN:
                         return "3x15";
-                    case "NOVICE":
+                    case Constants.NOVICE:
                         return "4x15";
-                    case "INTERMEDIATE":
+                    case Constants.INTER:
                         return "4x20";
-                    case "ADVANCED":
+                    case Constants.ADVAN:
                         return "5x18";
-                    case "ELITE":
+                    case Constants.ELITE:
                         return "5x20";
                 }
             }
         }
-        else if(e.getLocationType().equals("BODYWEIGHT")){
-            if(e.getType().equals("POWER")){
+        else if(e.getLocationType().equals(Constants.BODY)){
+            if(e.getType().equals(Constants.POW_HYPE)){
                 switch (experience) {
-                    case "BEGINNER":
+                    case Constants.BEGIN:
                         return "3x8";
-                    case "NOVICE":
+                    case Constants.NOVICE:
                         return "3x5";
-                    case "INTERMEDIATE":
+                    case Constants.INTER:
                         return "4x5";
-                    case "ADVANCED":
+                    case Constants.ADVAN:
                         return "5x5";
-                    case "ELITE":
+                    case Constants.ELITE:
                         return "5x5";
                 }
             }
-            else if(e.getType().equals("HYPERTROPHY")){
+            else if(e.getType().equals(Constants.ENDU)) {
                 switch (experience) {
-                    case "BEGINNER":
-                        return "3x10";
-                    case "NOVICE":
-                        return "3x12";
-                    case "INTERMEDIATE":
-                        return "4x12";
-                    case "ADVANCED":
-                        return "4x12";
-                    case "ELITE":
-                        return "4x12";
-                }
-            }
-            else if(e.getType().equals("ENDURANCE")) {
-                switch (experience) {
-                    case "BEGINNER":
+                    case Constants.BEGIN:
                         return "3x15";
-                    case "NOVICE":
+                    case Constants.NOVICE:
                         return "4x15";
-                    case "INTERMEDIATE":
+                    case Constants.INTER:
                         return "4x20";
-                    case "ADVANCED":
+                    case Constants.ADVAN:
                         return "5x18";
-                    case "ELITE":
+                    case Constants.ELITE:
+                        return "5x20";
+                }
+            }
+        }
+        else if(e.getLocationType().equals(Constants.FREE)){
+            if(e.getType().equals(Constants.POWER)){
+                switch (experience) {
+                    case Constants.BEGIN:
+                        return "3x8";
+                    case Constants.NOVICE:
+                        return "3x5";
+                    case Constants.INTER:
+                        return "4x5";
+                    case Constants.ADVAN:
+                        return "5x5";
+                    case Constants.ELITE:
+                        return "5x5";
+                }
+            }
+            else if(e.getType().equals(Constants.HYPER)){
+                switch (experience) {
+                    case Constants.BEGIN:
+                        return "3x10";
+                    case Constants.NOVICE:
+                        return "3x12";
+                    case Constants.INTER:
+                        return "4x12";
+                    case Constants.ADVAN:
+                        return "4x12";
+                    case Constants.ELITE:
+                        return "4x12";
+                }
+            }
+            else if(e.getType().equals(Constants.ENDU)) {
+                switch (experience) {
+                    case Constants.BEGIN:
+                        return "3x15";
+                    case Constants.NOVICE:
+                        return "4x15";
+                    case Constants.INTER:
+                        return "4x20";
+                    case Constants.ADVAN:
+                        return "5x18";
+                    case Constants.ELITE:
                         return "5x20";
                 }
             }
