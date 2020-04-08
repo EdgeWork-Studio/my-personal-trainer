@@ -7,18 +7,14 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.example.mypersonaltrainer.ObjectClasses.Constants;
 import com.example.mypersonaltrainer.ObjectClasses.User;
 import com.google.gson.Gson;
-
-import org.w3c.dom.Text;
 
 public class WorkoutPrefCollection extends AppCompatActivity {
     private User user;
@@ -43,7 +39,7 @@ public class WorkoutPrefCollection extends AppCompatActivity {
                     case Constants.BODY:
                         types = getResources().getStringArray(R.array.body_options);
                         break;
-                    case Constants.FREE:
+                    case Constants.DUMB:
                         types = getResources().getStringArray(R.array.free_options);
                         break;
                 }
@@ -66,7 +62,7 @@ public class WorkoutPrefCollection extends AppCompatActivity {
                     case Constants.BODY:
                         days = getResources().getStringArray(R.array.body_options);
                         break;
-                    case Constants.FREE:
+                    case Constants.DUMB:
                         days = getResources().getStringArray(R.array.free_options);
                         break;
                 }

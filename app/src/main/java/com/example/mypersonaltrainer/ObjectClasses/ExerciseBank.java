@@ -4,13 +4,15 @@ import java.util.ArrayList;
 import java.util.Random;
 public class ExerciseBank
 {
-    private ArrayList<Exercise> pectorals;
+    private ArrayList<Exercise> chest;
     private ArrayList<Exercise> back;
     private ArrayList<Exercise> quadriceps;
     private ArrayList<Exercise> calves;
     private ArrayList<Exercise> biceps;
     private ArrayList<Exercise> triceps;
+    private ArrayList<Exercise> hamstrings;
     private ArrayList<Exercise> shoulders;
+    private ArrayList<Exercise> butt;
     private ArrayList<Exercise> bodyweight;
     private ArrayList<Exercise> compound;
     private ArrayList<Exercise> abs;
@@ -32,13 +34,13 @@ public class ExerciseBank
 
     private void initPectorals()
     {
-        pectorals = new ArrayList<Exercise>();
-        pectorals.add(new Exercise("Decline Dumbbell press", "Strength", "Pectorals", "Triceps",9));
-        pectorals.add(new Exercise("Incline Dumbbell press",  "Strength", "Pectorals", "Triceps",9));
-        pectorals.add(new Exercise("Dumbbell Flye",  "Hypertrophy", "Pectorals", "Deltoids",9));
-        pectorals.add(new Exercise("Landmine Press", "Strength", "Pectorals", "Triceps",9));
-        pectorals.add(new Exercise("Barbell Press", "Strength", "Pectorals", "Triceps",9));
-        pectorals.add(new Exercise("Cable fly", "Hypertrophy", "Pectorals", "Triceps",9));
+        chest = new ArrayList<Exercise>();
+        chest.add(new Exercise("Decline Dumbbell press", "Strength", "Pectorals", "Triceps",9));
+        chest.add(new Exercise("Incline Dumbbell press",  "Strength", "Pectorals", "Triceps",9));
+        chest.add(new Exercise("Dumbbell Flye",  "Hypertrophy", "Pectorals", "Deltoids",9));
+        chest.add(new Exercise("Landmine Press", "Strength", "Pectorals", "Triceps",9));
+        chest.add(new Exercise("Barbell Press", "Strength", "Pectorals", "Triceps",9));
+        chest.add(new Exercise("Cable fly", "Hypertrophy", "Pectorals", "Triceps",9));
     }
 
     private void initBack(){
@@ -110,86 +112,59 @@ public class ExerciseBank
         compound.add(new Exercise("Pull Up", "Strength", "Biceps", "Back",8));
     }
 
-    private int findOpenIndex(ArrayList<Exercise> e){
-        int r = random.nextInt(e.size() - 1);
-        while(usedIndices.contains(r))
-            r = random.nextInt(e.size() - 1);
-
-        usedIndices.add(r);
-        return r;
+    public ArrayList<Exercise> getExercise(ArrayList<Exercise> exercises, String target, String locationType){
+        switch(target){
+            case Constants.ABS: return getXExercise(exercises, abs, locationType);
+            case Constants.BACK: return getXExercise(exercises, back, locationType);
+            case Constants.BICEPS: return getXExercise(exercises, biceps, locationType);
+            case Constants.BUTT: return getXExercise(exercises, butt, locationType);
+            case Constants.CALVES: return getXExercise(exercises, calves, locationType);
+            case Constants.CHEST: return getXExercise(exercises, chest, locationType);
+            case Constants.HAM: return getXExercise(exercises, hamstrings, locationType);
+            case Constants.QUADS: return getXExercise(exercises, quadriceps, locationType);
+            case Constants.SHOULDERS: return getXExercise(exercises, shoulders, locationType);
+            case Constants.TRICEPS: return getXExercise(exercises, triceps, locationType);
+            default: return null;
+        }
     }
 
-    public ArrayList getQuadExercises(int numEx, ArrayList<Exercise> e, String...targetArea){
-        for(String t: targetArea){
-            if(t.equals("Thighs"));
-            numEx+=1;
-        }
-        for(int i=0; i<numEx; i++)
-            e.add(quadriceps.get(findOpenIndex(quadriceps)));
 
-        usedIndices.clear();
-        return e;
-    }
-
-    public ArrayList getCalfExercises(int numEx, ArrayList<Exercise> e, String...targetArea){
-        // System.out.println(numEx);
-        for(String t: targetArea){
-            if(t.equals("Calves"))
-                numEx+=1;
-        }
-
-        for(int i=0; i<numEx; i++){
-            e.add(calves.get(findOpenIndex(calves)));
-        }
-
-        usedIndices.clear();
-        return e;
-    }
-    public ArrayList getBackExercises(int numEx, ArrayList<Exercise> e, String...targetArea){
-        for(String t: targetArea){
-            if(t.equals("Back"))
-                numEx+=1;
-        }
-        for(int i=0; i<numEx; i++){
-            e.add(back.get(findOpenIndex(back)));
-        }
-        usedIndices.clear();
-        return e;
-    }
-    public ArrayList getPectoralExercises(int numEx, ArrayList<Exercise> e, String...targetArea){
-
-        for(String t: targetArea){
-            if(t.equals("Chest"))
-                numEx+=1;
-        }
-        for(int i=0; i<numEx; i++){
-            e.add(pectorals.get(findOpenIndex(pectorals)));
-        }
-
-        usedIndices.clear();
-        return e;
-    }
-    public ArrayList getBicepExercises(int numEx, ArrayList<Exercise> e,String...targetArea){
-        for(String t: targetArea){
-            if(t.equals("Biceps"))
-                numEx+=1;
-        }
-        for(int i=0; i<numEx; i++){
-            e.add(biceps.get(findOpenIndex(biceps)));
-        }
-
-        usedIndices.clear();
-        return e;
-    }
-    public ArrayList getCompoundExercise(String muscleGroup, ArrayList<Exercise> e,String...targetArea){
-        for(Exercise c: compound){
-            if(c.getPrimaryMuscleGroup().equals(muscleGroup) || c.getSecondaryMuscleGroup().equals(muscleGroup)){
-                e.add(c);
-                break;
+    public ArrayList<Exercise> getXExercise(ArrayList<Exercise> exercises, ArrayList<Exercise> exerciseBank, String locationType){
+        ArrayList<Exercise> exercises2 = (ArrayList) exerciseBank.clone();
+        if(locationType.equals(Constants.GYM)){
+            for(Exercise e: exercises){
+                if(exercises2.contains(e)) exercises2.remove(e);
             }
-
         }
-        return e;
+        else if(locationType.equals(Constants.DUMB)){
+            for(Exercise e: exercises){
+                if(e.getLocationType().equals(Constants.GYM)) exercises2.remove(e);
+                else if(exercises2.contains(e)) exercises2.remove(e);
+            }
+        }
+        else if(locationType.equals(Constants.BODY)){
+            for(Exercise e: exercises){
+                if(e.getLocationType().equals(Constants.GYM) || e.getLocationType().equals(Constants.DUMB)) exercises2.remove(e);
+                else if(exercises2.contains(e)) exercises2.remove(e);
+            }
+        }
+        Exercise e =null;
+        while(e == null){
+            e = exercises2.get(random.nextInt(exercises2.size()));
+            if(exercises2.size()<=1) break;
+            int targetCount = 0, typeCount = 0;
+            for(Exercise e2:exercises){
+                if(e.getPrimaryMuscleGroup().equals(e2.getPrimaryMuscleGroup()))
+                    targetCount++;
+                if(e.getType().equals(e2.getType()))
+                    typeCount++;
+            }
+            if(typeCount>=targetCount/2){
+                exercises2.remove(e);
+                e = null;
+            }
+        }
+        exercises.add(e);
+        return exercises;
     }
-
 }

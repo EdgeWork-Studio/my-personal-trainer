@@ -31,10 +31,16 @@
                 android:text="Chest" />
 
             <RadioButton
-                android:id="@+id/radio_arms"
+                android:id="@+id/radio_biceps"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Arms" />
+                android:text="Biceps" />
+
+            <RadioButton
+                android:id="@+id/radio_triceps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Triceps" />
 
             <RadioButton
                 android:id="@+id/radio_back"
@@ -55,10 +61,16 @@
                 android:text="Butt" />
 
             <RadioButton
-                android:id="@+id/radio_legs"
+                android:id="@+id/radio_quads"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Legs" />
+                android:text="Quads" />
+
+            <RadioButton
+                android:id="@+id/radio_ham"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hamstrings" />
         </RadioGroup>
     </ScrollView>
 

@@ -33,11 +33,13 @@ public class MuscleFocus extends AppCompatActivity {
         switch (radioButtonId){
             case R.id.radio_shoulders: muscleFocus = Constants.SHOULDERS; break;
             case R.id.radio_chest: muscleFocus = Constants.CHEST; break;
-            case R.id.radio_arms: muscleFocus = Constants.ARMS; break;
+            case R.id.radio_biceps: muscleFocus = Constants.BICEPS; break;
+            case R.id.radio_triceps: muscleFocus = Constants.TRICEPS; break;
             case R.id.radio_back: muscleFocus = Constants.BACK; break;
             case R.id.radio_abs: muscleFocus = Constants.ABS; break;
             case R.id.radio_butt: muscleFocus = Constants.BUTT; break;
-            case R.id.radio_legs: muscleFocus = Constants.LEGS; break;
+            case R.id.radio_quads: muscleFocus = Constants.QUADS; break;
+            case R.id.radio_ham: muscleFocus = Constants.HAM; break;
             default: muscleFocus = Constants.NONE;
         }
         user.setMuscleFocus(muscleFocus);

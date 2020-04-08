@@ -1,6 +1,6 @@
 package com.example.mypersonaltrainer.ObjectClasses;
 
-import com.example.mypersonaltrainer.ObjectClasses.Constants;
+import android.os.CpuUsageInfo;
 
 import java.util.ArrayList;
 
@@ -15,12 +15,15 @@ public class WorkoutGenerator {
     }
 
 
-    public ArrayList get4DaySplit(String targetArea){
+    public ArrayList get4DaySplit(String trainingLocation, String targetArea){
 
-        exercises=eBank.getQuadExercises(3, exercises,targetArea);
-        exercises=eBank.getCalfExercises(2, exercises,targetArea);
-        exercises=eBank.getCompoundExercise("Hamstring",exercises);
-        routine.add(new Workout(exercises, "Day 1: Leg Day"));
+        exercises=eBank.getExercise(exercises, Constants.CHEST, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
+        exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.BICEPS, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.TRICEPS, trainingLocation);
+        routine.add(new Workout(exercises, "Day 1: Upper Day"));
 
         //exercises.clear() when starting a new set of exercises for next day.
         return routine;
@@ -104,7 +107,7 @@ public class WorkoutGenerator {
                 }
             }
         }
-        else if(e.getLocationType().equals(Constants.FREE)){
+        else if(e.getLocationType().equals(Constants.DUMB)){
             if(e.getType().equals(Constants.POWER)){
                 switch (experience) {
                     case Constants.BEGIN:
