@@ -25,6 +25,7 @@ public class ExerciseBank
         initBack();
         initCalves();
         initBiceps();
+        initTriceps();
         initQuadriceps();
         initShoulders();
         initCompound();

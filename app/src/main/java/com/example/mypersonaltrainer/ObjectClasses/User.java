@@ -2,11 +2,14 @@ package com.example.mypersonaltrainer.ObjectClasses;
 
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.ArrayList;
+
 public class User {
     private String userID, email, displayName, activityLevel, experience, workoutType, trainingLocation, muscleFocus; //BEGINNER, NOVICE, INTERMEDIATE, ADVANCED, ELITE
     private Boolean man;
     private Double weight, height, bodyFat = 0.0; //weight in kg, height in cm
     private Integer age, tdee, days;
+    private ArrayList<Workout> routine;
 
 
 
@@ -112,6 +115,15 @@ public class User {
     public void setMuscleFocus(String muscleFocus) {
         this.muscleFocus = muscleFocus;
     }
+
+    public ArrayList<Workout> getRoutine() {
+        return routine;
+    }
+
+    public void setRoutine(ArrayList<Workout> routine) {
+        this.routine = routine;
+    }
+
     public String getWorkoutType() {
         return workoutType;
     }

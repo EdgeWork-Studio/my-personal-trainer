@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.mypersonaltrainer.ObjectClasses.User;
+import com.example.mypersonaltrainer.ObjectClasses.Workout;
+import com.example.mypersonaltrainer.ObjectClasses.WorkoutGenerator;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -20,6 +22,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 public class Home extends AppCompatActivity {
     private SharedPreferences mPrefs;
@@ -39,7 +43,16 @@ public class Home extends AppCompatActivity {
             else{
                 user = gson.fromJson(json, User.class);
                 TextView tv = findViewById(R.id.textView2);
-                tv.setText(user.toString());
+                ArrayList<Workout> workout = user.getRoutine();
+                if(workout==null){
+                    WorkoutGenerator wg = new WorkoutGenerator();
+                    workout = wg.getRoutine(user.getDays(), user.getTrainingLocation(), user.getMuscleFocus());
+                    user.setRoutine(workout);
+                }
+                String test = "";
+                for (Workout w: workout)
+                    test += w.toString();
+                tv.setText(test);
             }
         }
         else goToSignIn();

@@ -35,7 +35,7 @@ public class Workout
     public String toString(){
         String result = title + "\n";
         for(Exercise e: exercises)
-            result += e.toString();
+            result += e.toString() + "\n";
 
         result += "\n";
         return result;

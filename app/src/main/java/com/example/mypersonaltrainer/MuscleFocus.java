@@ -10,8 +10,13 @@ import android.view.View;
 import android.widget.RadioGroup;
 
 import com.example.mypersonaltrainer.ObjectClasses.Constants;
+import com.example.mypersonaltrainer.ObjectClasses.Exercise;
 import com.example.mypersonaltrainer.ObjectClasses.User;
+import com.example.mypersonaltrainer.ObjectClasses.Workout;
+import com.example.mypersonaltrainer.ObjectClasses.WorkoutGenerator;
 import com.google.gson.Gson;
+
+import java.util.ArrayList;
 
 public class MuscleFocus extends AppCompatActivity {
     private User user;
@@ -43,6 +48,10 @@ public class MuscleFocus extends AppCompatActivity {
             default: muscleFocus = Constants.NONE;
         }
         user.setMuscleFocus(muscleFocus);
+        WorkoutGenerator wg = new WorkoutGenerator();
+        ArrayList<Workout> routine = new ArrayList<>();
+        routine = wg.getRoutine(user.getDays(), user.getTrainingLocation(), user.getMuscleFocus());
+        user.setRoutine(routine);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         json = gson.toJson(user);
         prefsEditor.putString("user", json);
