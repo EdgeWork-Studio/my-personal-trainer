@@ -10,4 +10,88 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_setup1">Setup1</string>
+    <string name="kilos">Kilograms</string>
+    <string name="pounds">Pounds</string>
+    <string name="weight">Weight</string>
+    <string name="inches">Inches</string>
+    <string name="cm">Centimetres</string>
+    <string name="height">Height</string>
+    <string name="activity_level">Activity Level</string>
+    <string name="bf_optional">Body Fat Percentage (optional)</string>
+    <string name="exp">Experience</string>
+    <string name="submit">Submit</string>
+    <string name="age">Age</string>
+    <string name="sex">Sex</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="sign_out">Sign Out</string>
+
+    <string name="first_greet">Let\'s get to know you better!</string>
+
+
+    <string-array name="days">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string-array name="activity_levels">
+        <item>Sedentary</item>
+        <item>Light Exercise (1-2 days/week)</item>
+        <item>Moderate Exercise (3-5 days/week)</item>
+        <item>Heavy Exercise (6-7 days/week)</item>
+        <item>Athlete (2x /day)</item>
+    </string-array>
+    <string-array name="experience">
+        <item>Beginner</item>
+        <item>Novice</item>
+        <item>Intermediate</item>
+        <item>Advanced</item>
+        <item>Elite</item>
+    </string-array>
+    <string-array name="workout_location">
+        <item>Gym</item>
+        <item>Body Weight</item>
+        <item>Free Weights</item>
+    </string-array>
+    <string-array name="gym_options">
+        <item>Power</item>
+        <item>Hypertrophy</item>
+        <item>Endurance</item>
+    </string-array>
+    <string-array name="body_options">
+        <item>Power/Hypertrophy</item>
+        <item>Endurance</item>
+    </string-array>
+    <string-array name="free_options">
+        <item>Power</item>
+        <item>Hypertrophy</item>
+        <item>Endurance</item>
+    </string-array>
+    <string-array name="gym_pow">
+
+    </string-array>
+    <string-array name="gym_hyp">
+
+    </string-array>
+    <string-array name="gym_end">
+
+    </string-array>
+    <string-array name="body_powhyp">
+
+    </string-array>
+    <string-array name="body_end">
+
+    </string-array>
+    <string-array name="free_pow">
+
+    </string-array>
+    <string-array name="free_hyp">
+
+    </string-array>
+    <string-array name="free_end">
+
+    </string-array>
 </resources>

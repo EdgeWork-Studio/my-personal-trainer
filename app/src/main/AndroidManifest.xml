@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SignIn"></activity>
+        <activity android:name=".MuscleFocus"></activity>
+        <activity android:name=".BiometricCollection" />
+        <activity
+            android:name=".WorkoutPrefCollection"
+            android:label="@string/title_activity_setup1"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".SignIn" />
         <activity
             android:name=".ui.login.SignIn"
             android:label="@string/title_activity_sign_in" />

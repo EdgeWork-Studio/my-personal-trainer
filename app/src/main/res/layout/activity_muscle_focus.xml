@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_submit"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioGroup
+            android:id="@+id/radio_group_muscle_focus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:checkedButton="@id/radio_shoulders">
+
+            <RadioButton
+                android:id="@+id/radio_shoulders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shoulders" />
+
+            <RadioButton
+                android:id="@+id/radio_chest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chest" />
+
+            <RadioButton
+                android:id="@+id/radio_biceps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Biceps" />
+
+            <RadioButton
+                android:id="@+id/radio_triceps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Triceps" />
+
+            <RadioButton
+                android:id="@+id/radio_back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back" />
+
+            <RadioButton
+                android:id="@+id/radio_abs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Abs" />
+
+            <RadioButton
+                android:id="@+id/radio_butt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Butt" />
+
+            <RadioButton
+                android:id="@+id/radio_quads"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quads" />
+
+            <RadioButton
+                android:id="@+id/radio_ham"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hamstrings" />
+        </RadioGroup>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="muscleFocusCollection"
+        android:text="@string/submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

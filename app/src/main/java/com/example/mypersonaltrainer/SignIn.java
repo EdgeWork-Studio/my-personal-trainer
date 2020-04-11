@@ -40,11 +40,8 @@ public class SignIn extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
     }
     public void signIn(View view) {
-        TextView tv = findViewById(R.id.textView);
-        tv.setText("test");
         Intent signInIntent = gsc.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
@@ -81,12 +78,11 @@ public class SignIn extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("sad", "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
+                            goToSetup();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("hsa", "signInWithCredential:failure", task.getException());
                             Toast.makeText(getApplicationContext(), "Authentication Failed.", Toast.LENGTH_SHORT).show();
-                            updateUI(null);
                         }
 
                         // ...
@@ -94,8 +90,8 @@ public class SignIn extends AppCompatActivity {
                 });
     }
 
-    private void updateUI(FirebaseUser x){
-        TextView tv = findViewById(R.id.textView);
-        tv.setText(x.getUid());
+    private void goToSetup(){
+        Intent i = new Intent(this, BiometricCollection.class);
+        startActivity(i);
     }
 }
