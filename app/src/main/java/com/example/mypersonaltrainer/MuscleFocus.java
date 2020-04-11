@@ -48,7 +48,7 @@ public class MuscleFocus extends AppCompatActivity {
             default: muscleFocus = Constants.NONE;
         }
         user.setMuscleFocus(muscleFocus);
-        WorkoutGenerator wg = new WorkoutGenerator();
+        WorkoutGenerator wg = new WorkoutGenerator(getApplicationContext());
         ArrayList<Workout> routine = new ArrayList<>();
         routine = wg.getRoutine(user.getDays(), user.getTrainingLocation(), user.getMuscleFocus());
         user.setRoutine(routine);

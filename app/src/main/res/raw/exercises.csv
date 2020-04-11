@@ -1,0 +1,70 @@
+name,type,locationtype,primaryMuscle,secondaryMuscle
+Hanging Leg Raises,Raise,Body,Abs,None
+Russian Twists,Twist,Body,Abs,None
+Situps,Crunch,Body,Abs,None
+Barbell Deadlift,Hinge,Gym,Back,Hamstrings
+Barbell Row,Row,Gym,Back,Biceps
+Bodyweight Row,Row,Body,Back,Biceps
+Cable Rows,Row,Gym,Back,Biceps
+Chinups,Pull,Body,Back,Biceps
+Dumbbell Deadlift,Hinge,Dumbbell,Back,Hamstrings
+Dumbbell Pullovers,Pull,Dumbbell,Back,Abs
+Dumbbell Rows,Row,Dumbbell,Back,Biceps
+Lat Pulldown,Row,Gym,Back,Biceps
+Pullups,Pull,Body,Back,Biceps
+Single Arm Dumbbell Row,Row,Dumbbell,Back,Biceps
+Barbell Bicep Curl,Curl,Gym,Biceps,None
+Cable Curl,Curl,Gym,Biceps,None
+Concentration Curl,Curl,Dumbbell,Biceps,None
+Dumbbell Bicep Curl,Curl,Dumbbell,Biceps,None
+EZ-Bar Bicep Curls,Curl,Gym,Biceps,None
+Hammer Curls,Adjacent,Dumbbell,Biceps,None
+Preacher Curls,Curl,Dumbbell,Biceps,None
+Glute Kickbacks,Raise,Body,Butt,Hamstrings
+Hip Thrust,Thrust,Body,Butt,Hamstrings
+Weighted Hip Thrusts,Thrust,Dumbbell,Butt,Hamstrings
+Calf Extentions,Extention,Gym,Calves,None
+Single Leg Calf Raises,Extention,Body,Calves,None
+Toe in Calf Extentions,Extention,Gym,Calves,None
+Toe in Weighted Calf Raises,Extention,Dumbbell,Calves,None
+Weighted Calf Raises,Extention,Dumbbell,Calves,None
+Barbell Bench Press,Press,Gym,Chest,Triceps
+Cable Fly,Fly,Gym,Chest,None
+Dips,Press,Body,Chest,Triceps
+Dumbbell Bench Press,Press,Dumbbell,Chest,Triceps
+Dumbbell Chest Press,Press,Dumbbell,Chest,Triceps
+Dumbell Chest Fly,Fly,Dumbbell,Chest,None
+Incline Dumbbell Bench Press,Press,Dumbbell,Chest,Triceps
+Incline Dumbbell Chest Press,Press,Dumbbell,Chest,Triceps
+Incline Dumbbell Press,Press,Dumbbell,Chest,Triceps
+Landmine Press,Press,Gym,Chest,Triceps
+Pushups,Press,Body,Chest,Triceps
+Pushups w/ Elevated Legs ,Press,Body,Chest,Triceps
+Hamstring Curls,Curl,Gym,Hamstrings,None
+Romanian Barbell Deadlift,Hinge,Gym,Hamstrings,Back
+Romanian Dumbbell Deadlift,Hinge,Dumbbell,Hamstrings,Back
+Single Leg Romanian Deadlift,Hinge,Body,Hamstrings,Back
+Barbell Front Squat,Push,Gym,Quadriceps,Butt
+Barbell Squats,Push,Gym,Quadriceps,Hamstrings
+Leg Extension,Extension,Gym,Quadriceps,None
+Leg Press,Push,Gym,Quadriceps,Hamstrings
+Lunges,Lunge,Body,Quadriceps,Hamstrings
+Split Squats,Lunge,Body,Quadriceps,Hamstrings
+Squats,Push,Body,Quadriceps,Hamstrings
+Weighted Lunges,Lunge,Dumbbell,Quadriceps,Hamstrings
+Weighted Split Squats,Lunge,Dumbbell,Quadriceps,Hamstrings
+Weighted Squats,Lunge,Dumbbell,Quadriceps,Hamstrings
+Weighted Stepups,Lunge,Dumbbell,Quadriceps,Butt
+Arnold Press,Press,Dumbbell,Shoulders,Triceps
+Barbell Overhead Press,Press,Gym,Shoulders,Triceps
+Dumbbell Shoulder Press,Press,Dumbbell,Shoulders,Triceps
+Face Pulls,Pull,Gym,Shoulders,Back
+Lateral Shoulder Raises,Raise,Dumbbell,Shoulders,None
+Pike Plank,Plank,Body,Shoulders,None
+Pike Pushups,Press,Body,Shoulders,Triceps
+Rear Delt Fly,Fly,Dumbbell,Shoulders,Back
+Overhead Tricep Extension,Extention,Dumbbell,Triceps,None
+Rope Push Down,Push,Gym,Triceps,None
+Skull Crushers,Extention,Gym,Triceps,None
+Tricep Dip,Push,Body,Triceps,Chest
+Tricep Pushdown,Push,Gym,Triceps,None

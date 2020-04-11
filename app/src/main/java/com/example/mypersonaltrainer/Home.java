@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import com.example.mypersonaltrainer.ObjectClasses.Constants;
 import com.example.mypersonaltrainer.ObjectClasses.User;
 import com.example.mypersonaltrainer.ObjectClasses.Workout;
 import com.example.mypersonaltrainer.ObjectClasses.WorkoutGenerator;
@@ -45,7 +46,8 @@ public class Home extends AppCompatActivity {
                 TextView tv = findViewById(R.id.textView2);
                 ArrayList<Workout> workout = user.getRoutine();
                 if(workout==null){
-                    WorkoutGenerator wg = new WorkoutGenerator();
+                    WorkoutGenerator wg = new WorkoutGenerator(getApplicationContext());
+                    getResources().openRawResource(R.raw.exercises);
                     workout = wg.getRoutine(user.getDays(), user.getTrainingLocation(), user.getMuscleFocus());
                     user.setRoutine(workout);
                 }

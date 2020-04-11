@@ -9,18 +9,19 @@ public class Exercise
     private String locationType; //GYM, BODY WEIGHT, ETC.
     private String primaryMuscleGroup; //...enum class?
     private String secondaryMuscleGroup; //...enum class?
-    private long difficulty; //...enum class?
+    //private long difficulty; //...enum class?
 
 
 
 
-    public Exercise(String name, String type, String primaryMuscleGroup, String secondaryMuscleGroup, long difficulty)
+    public Exercise(String name, String type, String locationType, String primaryMuscleGroup, String secondaryMuscleGroup)
     {
         this.name = name;
         this.type = type;
+        this.locationType = locationType;
         this.primaryMuscleGroup = primaryMuscleGroup;
         this.secondaryMuscleGroup = secondaryMuscleGroup;
-        this.difficulty = difficulty;
+        //this.difficulty = difficulty;
     }
 
 
@@ -38,10 +39,6 @@ public class Exercise
 
     public String getSecondaryMuscleGroup(){
         return this.secondaryMuscleGroup;
-    }
-
-    public long getDifficulty(){
-        return this.difficulty;
     }
 
     public String getLocationType(){

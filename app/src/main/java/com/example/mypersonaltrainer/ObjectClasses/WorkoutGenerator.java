@@ -1,15 +1,18 @@
 package com.example.mypersonaltrainer.ObjectClasses;
 
+import android.content.Context;
 import android.os.CpuUsageInfo;
 
 import java.util.ArrayList;
 
 public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleton
+    private Context context;
     private ExerciseBank eBank;
     private ArrayList<Workout> routine;
     private ArrayList<Exercise> exercises;
-    public WorkoutGenerator(){
-        eBank = new ExerciseBank();
+    public WorkoutGenerator(Context context){
+        this.context = context;
+        eBank = new ExerciseBank(context);
         routine = new ArrayList<Workout>();
         exercises = new ArrayList<Exercise>();
     }
@@ -30,16 +33,53 @@ public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleto
     }
 
     public ArrayList<Workout> get2DayRoutine(String trainingLocation, String targetArea){
-        return null;
+        exercises=eBank.getExercise(exercises, Constants.QUADS, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.CALVES, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.HAM, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.CHEST, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 1"));
+        exercises.clear();
+        exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.CHEST, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.QUADS, trainingLocation);
+        exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.CALVES, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 2"));
+        return routine;
     }
 
     public ArrayList<Workout> get3DayRoutine(String trainingLocation, String targetArea){
-        return null;
+        exercises=eBank.getExercise(exercises, Constants.QUADS, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.CHEST, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.HAM, trainingLocation);
+        exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 1"));
+        exercises.clear();
+        exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.HAM, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.CALVES, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
+        exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.TRICEPS, trainingLocation);
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 2"));
+        exercises.clear();
+        exercises=eBank.getExercise(exercises, Constants.QUADS, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.CHEST, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.CALVES, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
+        exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.BICEPS, trainingLocation);
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 3"));
+        return routine;
     }
 
     public ArrayList<Workout> get4DayRoutine(String trainingLocation, String targetArea){
         String title;
-        for(int i=1; i<4; i++){
+        for(int i=1; i<4; i=i+2){
             exercises=eBank.getExercise(exercises, Constants.CHEST, trainingLocation);
             exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
             if(!(targetArea.equals(Constants.QUADS) || targetArea.equals(Constants.HAM) || targetArea.equals(Constants.CALVES) || targetArea.equals(Constants.BUTT) || targetArea.equals(Constants.NONE)))
@@ -47,17 +87,17 @@ public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleto
             exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
             exercises=eBank.getExercise(exercises, Constants.BICEPS, trainingLocation);
             exercises=eBank.getExercise(exercises, Constants.TRICEPS, trainingLocation);
-            title = "Day " + i + ": Upper Day";
+            title = "Day " + i + ": Upper";
             routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), title));
             exercises.clear();
             exercises=eBank.getExercise(exercises, Constants.QUADS, trainingLocation);
             exercises=eBank.getExercise(exercises, Constants.HAM, trainingLocation);
-            if((targetArea.equals(Constants.QUADS) || targetArea.equals(Constants.HAM) || targetArea.equals(Constants.CALVES) || targetArea.equals(Constants.BUTT)))
+            if((targetArea.equals(Constants.QUADS) || targetArea.equals(Constants.HAM) || targetArea.equals(Constants.CALVES) || targetArea.equals(Constants.BUTT) || targetArea.equals(Constants.ABS)))
                 exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
             exercises=eBank.getExercise(exercises, Constants.QUADS, trainingLocation);
             exercises=eBank.getExercise(exercises, Constants.HAM, trainingLocation);
             exercises=eBank.getExercise(exercises, Constants.CALVES, trainingLocation);
-            title = "Day " + i + ": Lower Day";
+            title = "Day " + (i+1) + ": Lower";
             routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), title));
             exercises.clear();
         }
@@ -65,11 +105,81 @@ public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleto
     }
 
     public ArrayList<Workout> get5DayRoutine(String trainingLocation, String targetArea) {
-        return null;
+        exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.CHEST, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
+        if(!(targetArea.equals(Constants.QUADS) || targetArea.equals(Constants.HAM) || targetArea.equals(Constants.CALVES) || targetArea.equals(Constants.BUTT) || targetArea.equals(Constants.NONE)))
+            exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.BICEPS, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.TRICEPS, trainingLocation);
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 1: Upper"));
+        exercises.clear();
+        exercises=eBank.getExercise(exercises, Constants.QUADS, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.HAM, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.QUADS, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.HAM, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.CALVES, trainingLocation);
+        if((targetArea.equals(Constants.QUADS) || targetArea.equals(Constants.HAM) || targetArea.equals(Constants.CALVES) || targetArea.equals(Constants.BUTT) || targetArea.equals(Constants.ABS)))
+            exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 2: Lower"));
+        exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
+        if((targetArea.equals(Constants.BACK) || targetArea.equals(Constants.SHOULDERS)))
+            exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 3: Back/Shoulders"));
+        exercises.clear();
+        exercises=eBank.getExercise(exercises, Constants.QUADS, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.HAM, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.QUADS, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.HAM, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.CALVES, trainingLocation);
+        if((targetArea.equals(Constants.QUADS) || targetArea.equals(Constants.HAM) || targetArea.equals(Constants.CALVES) || targetArea.equals(Constants.BUTT) || targetArea.equals(Constants.ABS)))
+            exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 4: Lower"));
+        exercises.clear();
+        exercises=eBank.getExercise(exercises, Constants.CHEST, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.CHEST, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.BICEPS, trainingLocation);
+        exercises=eBank.getExercise(exercises, Constants.TRICEPS, trainingLocation);
+        if((targetArea.equals(Constants.CHEST) || targetArea.equals(Constants.BICEPS) || targetArea.equals(Constants.TRICEPS)))
+            exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 5: Back/Shoulders"));
+        return routine;
     }
 
     public ArrayList<Workout> get6DayRoutine(String trainingLocation, String targetArea){
-        return null;
+        for(int i=0; i<2; i++){
+            exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
+            exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
+            exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
+            exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
+            exercises=eBank.getExercise(exercises, Constants.BICEPS, trainingLocation);
+            if((targetArea.equals(Constants.BACK) || targetArea.equals(Constants.BICEPS)))
+                exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
+            routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day " + (1+(3*i)) + ": Pull"));
+            exercises.clear();
+            exercises=eBank.getExercise(exercises, Constants.CHEST, trainingLocation);
+            exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
+            exercises=eBank.getExercise(exercises, Constants.CHEST, trainingLocation);
+            exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
+            exercises=eBank.getExercise(exercises, Constants.TRICEPS, trainingLocation);
+            if((targetArea.equals(Constants.CHEST) || targetArea.equals(Constants.SHOULDERS)))
+                exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
+            routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day " + (2+(3*i)) + ": Push"));
+            exercises.clear();
+            exercises=eBank.getExercise(exercises, Constants.QUADS, trainingLocation);
+            exercises=eBank.getExercise(exercises, Constants.HAM, trainingLocation);
+            exercises=eBank.getExercise(exercises, Constants.QUADS, trainingLocation);
+            exercises=eBank.getExercise(exercises, Constants.HAM, trainingLocation);
+            exercises=eBank.getExercise(exercises, Constants.CALVES, trainingLocation);
+            if((targetArea.equals(Constants.QUADS) || targetArea.equals(Constants.HAM) || targetArea.equals(Constants.CALVES) || targetArea.equals(Constants.BUTT) || targetArea.equals(Constants.ABS)))
+                exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
+            routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day " + (3+(3*i)) + ": Legs"));
+            exercises.clear();
+        }
+        return routine;
     }
 
 
