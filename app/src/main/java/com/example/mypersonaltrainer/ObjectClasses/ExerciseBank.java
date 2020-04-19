@@ -63,7 +63,6 @@ public class ExerciseBank
                         default: temp = unknown; break;
                     }
                     Exercise e = new Exercise(name, type, locationType, primary, secondary);
-                    System.out.println(e);
                     temp.add(e);
                 }
 

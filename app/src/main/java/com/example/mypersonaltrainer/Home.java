@@ -43,18 +43,19 @@ public class Home extends AppCompatActivity {
             if(json.equals("user not found")) goToBioCollec();
             else{
                 user = gson.fromJson(json, User.class);
-                TextView tv = findViewById(R.id.textView2);
-                ArrayList<Workout> workout = user.getRoutine();
-                if(workout==null){
-                    WorkoutGenerator wg = new WorkoutGenerator(getApplicationContext());
-                    getResources().openRawResource(R.raw.exercises);
-                    workout = wg.getRoutine(user.getDays(), user.getTrainingLocation(), user.getMuscleFocus());
-                    user.setRoutine(workout);
+                if(user.getMuscleFocus() == null) goToBioCollec();
+                else{
+                    ArrayList<Workout> workout = user.getRoutine();
+                    if(workout==null){
+                        WorkoutGenerator wg = new WorkoutGenerator(getApplicationContext());
+                        getResources().openRawResource(R.raw.exercises);
+                        workout = wg.getRoutine(user.getDays(), user.getTrainingLocation(), user.getMuscleFocus());
+                        user.setRoutine(workout);
+                    }
                 }
-                String test = "";
-                for (Workout w: workout)
-                    test += w.toString();
-                tv.setText(test);
+                TextView tv = findViewById(R.id.val_rci);
+                String tdee = "~" + user.getTdee();
+                tv.setText(tdee);
             }
         }
         else goToSignIn();
@@ -68,14 +69,9 @@ public class Home extends AppCompatActivity {
         goToBioCollec();
     }
 
-    public void signOut(View view) {
-        gsc.signOut()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        goToSignIn();
-                    }
-                });
+    public void goToProfile(View view){
+        Intent i = new Intent(this, Profile.class);
+        startActivity(i);
     }
 
     private void goToSignIn(){
@@ -91,5 +87,6 @@ public class Home extends AppCompatActivity {
     private boolean isSignedIn(){
         return GoogleSignIn.getLastSignedInAccount(getApplicationContext()) != null;
     }
+
 
 }

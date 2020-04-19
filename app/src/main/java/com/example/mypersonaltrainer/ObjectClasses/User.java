@@ -5,7 +5,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 
 public class User {
-    private String userID, email, displayName, activityLevel, experience, workoutType, trainingLocation, muscleFocus; //BEGINNER, NOVICE, INTERMEDIATE, ADVANCED, ELITE
+    private String userID, email, displayName, activityLevel, experience, workoutType, trainingLocation, muscleFocus, weightGoal; //BEGINNER, NOVICE, INTERMEDIATE, ADVANCED, ELITE
     private Boolean man;
     private Double weight, height, bodyFat = 0.0; //weight in kg, height in cm
     private Integer age, tdee, days;
@@ -19,7 +19,7 @@ public class User {
         this.email = account.getEmail();
         this.displayName = account.getDisplayName();
     }
-    public User(FirebaseUser account, String activityLevel, String experience, Boolean man, Double weight, Double height, Integer age, Integer days){
+    public User(FirebaseUser account, String activityLevel, String experience, Boolean man, Double weight, Double height, Integer age, String goal){
         this.userID = account.getUid();
         this.email = account.getEmail();
         this.displayName = account.getDisplayName();
@@ -29,9 +29,10 @@ public class User {
         this.weight = weight; //in kg
         this.height = height; //in cm
         this.age = age;
+        this.weightGoal = goal;
         this.tdee = calculateTDEE();
     }
-    public User(FirebaseUser account, String activityLevel, String experience, Boolean man, Double weight, Double height, Double bodyFat, Integer age, Integer days){
+    public User(FirebaseUser account, String activityLevel, String experience, Boolean man, Double weight, Double height, Double bodyFat, Integer age, String goal){
         this.userID = account.getUid();
         this.email = account.getEmail();
         this.displayName = account.getDisplayName();
@@ -42,12 +43,15 @@ public class User {
         this.height = height; //in cm
         this.bodyFat = bodyFat;
         this.age = age;
+        this.weightGoal = goal;
         this.tdee = calculateTDEE();
     }
 
-    public Integer calculateTDEE(){ //weight in kg, height in pounds
+    public Integer calculateTDEE(){ //weight in kg, height in cm
         double bmr = 0, adjustedWeight;
         Integer returnValue = 0;
+
+        System.out.println("height: " + height + " weight: " + weight);
 
         if(bodyFat >= 1) adjustedWeight = weight * ((100.0 - bodyFat) / 100);
         else if(man) adjustedWeight = weight * 0.80;
@@ -56,14 +60,19 @@ public class User {
         if(man) bmr = 66 + (13.7 * adjustedWeight) + (5 * height) - (6.8 * age);
         else bmr = 655 + (9.6 * adjustedWeight) + (1.8 * height) - (4.7 * age);
 
+        System.out.println("bmr: " + bmr);
+
         switch (activityLevel){
-            case Constants.SEDENTARY: bmr = bmr * 1.2;
-            case Constants.LIGHTLY: bmr = bmr * 1.375;
-            case Constants.MODERATELY: bmr = bmr * 1.55;
-            case Constants.VERY: bmr = bmr * 1.725;
-            case Constants.EXTREMELY: bmr = bmr * 1.9;
+            case Constants.SEDENTARY: bmr = bmr * 1.2; break;
+            case Constants.LIGHTLY: bmr = bmr * 1.375; break;
+            case Constants.MODERATELY: bmr = bmr * 1.55; break;
+            case Constants.VERY: bmr = bmr * 1.725; break;
+            case Constants.EXTREMELY: bmr = bmr * 1.9; break;
         }
+        System.out.println("bmr2: " + bmr);
         returnValue = Integer.valueOf(((Long) (Math.round(bmr))).toString());
+        if(weightGoal.equals(Constants.LOSE)) returnValue = returnValue - 500;
+        else if(weightGoal.equals(Constants.GAIN)) returnValue = returnValue + 500;
         return returnValue;
     }
 

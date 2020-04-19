@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MuscleFocus"></activity>
+        <activity android:name=".Profile"></activity>
+        <activity android:name=".MuscleFocus" />
         <activity android:name=".BiometricCollection" />
         <activity
             android:name=".WorkoutPrefCollection"

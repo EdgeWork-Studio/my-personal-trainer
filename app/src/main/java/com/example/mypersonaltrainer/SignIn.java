@@ -78,7 +78,7 @@ public class SignIn extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("sad", "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            goToSetup();
+                            goToHome();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("hsa", "signInWithCredential:failure", task.getException());
@@ -92,6 +92,10 @@ public class SignIn extends AppCompatActivity {
 
     private void goToSetup(){
         Intent i = new Intent(this, BiometricCollection.class);
+        startActivity(i);
+    }
+    private void goToHome(){
+        Intent i = new Intent(this, Home.class);
         startActivity(i);
     }
 }

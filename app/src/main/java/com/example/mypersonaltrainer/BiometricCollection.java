@@ -30,7 +30,7 @@ public class BiometricCollection extends AppCompatActivity {
     }
 
     public void collectBiometrics(View view){
-        String activityLevel, experience, temp;
+        String activityLevel, experience, temp, goal;
         Integer age;
         Double weight, height, bodyfat;
         Boolean man;
@@ -49,7 +49,8 @@ public class BiometricCollection extends AppCompatActivity {
         if(!temp.equals(""))
             bodyfat = Double.valueOf(temp);
         else bodyfat = -1.0;
-        User user = new User(mAuth.getCurrentUser(), activityLevel, experience, man, weight, height, bodyfat, age, 0);
+        goal = ((Spinner) findViewById(R.id.spn_weight_goal)).getSelectedItem().toString();
+        User user = new User(mAuth.getCurrentUser(), activityLevel, experience, man, weight, height, bodyfat, age, goal);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         Gson gson = new Gson();
         String json = gson.toJson(user);

@@ -2,6 +2,8 @@
     <string name="app_name">MyPersonalTrainer</string>
     <string name="title_activity_home">Home</string>
     <string name="title_activity_sign_in">Sign In</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -26,7 +28,9 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="sign_out">Sign Out</string>
-
+    <string name="weight_goal">Weight Goal</string>
+    <string name="rci">Recommended Calorie Intake</string>
+    <string name="streak">Workouts Completed</string>
     <string name="first_greet">Let\'s get to know you better!</string>
 
 
@@ -70,28 +74,11 @@
         <item>Hypertrophy</item>
         <item>Endurance</item>
     </string-array>
-    <string-array name="gym_pow">
-
+    <string-array name="weight_goals">
+        <item>Maintain Weight</item>
+        <item>Lose Weight</item>
+        <item>Gain Weight</item>
     </string-array>
-    <string-array name="gym_hyp">
+    <string name="title_activity_profile">Profile</string>
 
-    </string-array>
-    <string-array name="gym_end">
-
-    </string-array>
-    <string-array name="body_powhyp">
-
-    </string-array>
-    <string-array name="body_end">
-
-    </string-array>
-    <string-array name="free_pow">
-
-    </string-array>
-    <string-array name="free_hyp">
-
-    </string-array>
-    <string-array name="free_end">
-
-    </string-array>
 </resources>

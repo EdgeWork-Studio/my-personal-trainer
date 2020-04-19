@@ -29,4 +29,7 @@ public class Constants {
     public final static String HYPER = "Hypertrophy";
     public final static String ENDU = "Endurance";
     public final static String POW_HYPE = "Power/Hypertrophy";
+    public final static String LOSE = "Lose Weight";
+    public final static String MAINT = "Maintain Weight";
+    public final static String GAIN = "Gain Weight";
 }
