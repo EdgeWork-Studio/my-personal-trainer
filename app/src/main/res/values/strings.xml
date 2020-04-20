@@ -34,6 +34,18 @@
     <string name="first_greet">Let\'s get to know you better!</string>
 
 
+    <string-array name="muscle_groups">
+        <item>Shoulders</item>
+        <item>Chest</item>
+        <item>Biceps</item>
+        <item>Triceps</item>
+        <item>Back</item>
+        <item>Abs</item>
+        <item>Butt</item>
+        <item>Quads</item>
+        <item>Hamstrings</item>
+        <item>Calves</item>
+    </string-array>
     <string-array name="days">
         <item>2</item>
         <item>3</item>

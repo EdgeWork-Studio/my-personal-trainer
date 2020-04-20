@@ -45,11 +45,12 @@ public class MuscleFocus extends AppCompatActivity {
             case R.id.radio_butt: muscleFocus = Constants.BUTT; break;
             case R.id.radio_quads: muscleFocus = Constants.QUADS; break;
             case R.id.radio_ham: muscleFocus = Constants.HAM; break;
+            case R.id.radio_calves: muscleFocus = Constants.CALVES; break;
             default: muscleFocus = Constants.NONE;
         }
         user.setMuscleFocus(muscleFocus);
         WorkoutGenerator wg = new WorkoutGenerator(getApplicationContext());
-        ArrayList<Workout> routine = new ArrayList<>();
+        ArrayList<Workout> routine;
         routine = wg.getRoutine(user.getDays(), user.getTrainingLocation(), user.getMuscleFocus());
         user.setRoutine(routine);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
