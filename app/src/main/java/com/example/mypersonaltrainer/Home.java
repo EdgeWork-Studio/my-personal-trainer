@@ -20,6 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -37,6 +38,8 @@ public class Home extends AppCompatActivity {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
         gsc = GoogleSignIn.getClient(this, gso);
         if(isSignedIn()){
+            ImageButton ib = findViewById(R.id.btn_profile);
+            ib.setVisibility(View.VISIBLE);
             mPrefs = getSharedPreferences("user_data", Context.MODE_PRIVATE);
             Gson gson = new Gson();
             String json = mPrefs.getString("user", "user not found");
@@ -59,6 +62,14 @@ public class Home extends AppCompatActivity {
             }
         }
         else goToSignIn();
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
+        TextView tv = findViewById(R.id.val_rci);
+        String tdee = "~" + user.getTdee();
+        tv.setText(tdee);
+
     }
 
     public void clearPrefs(View view){

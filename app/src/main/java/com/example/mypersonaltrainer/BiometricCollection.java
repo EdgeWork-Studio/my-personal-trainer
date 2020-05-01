@@ -48,7 +48,7 @@ public class BiometricCollection extends AppCompatActivity {
         temp = ((TextView) findViewById(R.id.input_body_fat)).getText().toString();
         if(!temp.equals(""))
             bodyfat = Double.valueOf(temp);
-        else bodyfat = -1.0;
+        else bodyfat = 0.0;
         goal = ((Spinner) findViewById(R.id.spn_weight_goal)).getSelectedItem().toString();
         User user = new User(mAuth.getCurrentUser(), activityLevel, experience, man, weight, height, bodyfat, age, goal);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();

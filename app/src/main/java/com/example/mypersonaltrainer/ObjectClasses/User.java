@@ -124,15 +124,18 @@ public class User {
     public void setMuscleFocus(String muscleFocus) {
         this.muscleFocus = muscleFocus;
     }
-
     public ArrayList<Workout> getRoutine() {
         return routine;
     }
-
     public void setRoutine(ArrayList<Workout> routine) {
         this.routine = routine;
     }
-
+    public String getWeightGoal() {
+        return weightGoal;
+    }
+    public void setWeightGoal(String weightGoal) {
+        this.weightGoal = weightGoal;
+    }
     public String getWorkoutType() {
         return workoutType;
     }

@@ -51,7 +51,7 @@ public class WorkoutPrefCollection extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> adapterView) { return; }
         });
 
-        workoutType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        /*workoutType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String sel1 = trainingLocation.getSelectedItem().toString();
                 String[] days = null;
@@ -72,7 +72,7 @@ public class WorkoutPrefCollection extends AppCompatActivity {
 
             }
             public void onNothingSelected(AdapterView<?> adapterView) { return; }
-        });
+        });*/
     }
 
     public void collectWorkoutPrefs(View view){

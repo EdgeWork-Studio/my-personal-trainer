@@ -108,6 +108,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="true"
                             android:text="@string/kilos" />
                     </RadioGroup>
 
@@ -155,6 +156,7 @@
                             android:id="@+id/radio_cm"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:checked="true"
                             android:text="@string/cm" />
                     </RadioGroup>
                 </LinearLayout>
@@ -328,6 +330,14 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="saveChanges"
+            android:text="@string/confirm" />
+
+        <Button
             android:id="@+id/btn_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -335,12 +345,5 @@
             android:onClick="btnReturnToHome"
             android:text="@string/cancel" />
 
-        <Button
-            android:id="@+id/btn_save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="saveChanges"
-            android:text="@string/confirm" />
     </LinearLayout>
 </LinearLayout>
