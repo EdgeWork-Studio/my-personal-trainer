@@ -66,10 +66,15 @@ public class Home extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
-        TextView tv = findViewById(R.id.val_rci);
-        String tdee = "~" + user.getTdee();
-        tv.setText(tdee);
-
+        if(isSignedIn()) {
+            String json = mPrefs.getString("user", "user not found");
+            if(json.equals("user not found")) goToBioCollec();
+            else {
+                TextView tv = findViewById(R.id.val_rci);
+                String tdee = "~" + user.getTdee();
+                tv.setText(tdee);
+            }
+        }
     }
 
     public void clearPrefs(View view){
