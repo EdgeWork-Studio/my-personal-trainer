@@ -20,7 +20,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -39,7 +41,9 @@ public class Home extends AppCompatActivity {
         gsc = GoogleSignIn.getClient(this, gso);
         if(isSignedIn()){
             ImageButton ib = findViewById(R.id.btn_profile);
+            ImageButton ib2 = findViewById(R.id.btn_full_workout);
             ib.setVisibility(View.VISIBLE);
+            ib2.setVisibility(View.VISIBLE);
             mPrefs = getSharedPreferences("user_data", Context.MODE_PRIVATE);
             Gson gson = new Gson();
             String json = mPrefs.getString("user", "user not found");
@@ -70,6 +74,9 @@ public class Home extends AppCompatActivity {
             String json = mPrefs.getString("user", "user not found");
             if(json.equals("user not found")) goToBioCollec();
             else {
+                ListView lv = findViewById(R.id.list_curr_workout);
+                ArrayAdapter<Workout> arrayAdapter = new ArrayAdapter<Workout>(this, android.R.layout.simple_list_item_1, user.getRoutine());
+                lv.setAdapter(arrayAdapter);
                 TextView tv = findViewById(R.id.val_rci);
                 String tdee = "~" + user.getTdee();
                 tv.setText(tdee);
@@ -79,9 +86,6 @@ public class Home extends AppCompatActivity {
 
     public void clearPrefs(View view){
         mPrefs.edit().remove("user").commit();
-        String json = mPrefs.getString("user", "user not found");
-        TextView tv = findViewById(R.id.textView2);
-        tv.setText(json);
         goToBioCollec();
     }
 
@@ -102,6 +106,11 @@ public class Home extends AppCompatActivity {
 
     private boolean isSignedIn(){
         return GoogleSignIn.getLastSignedInAccount(getApplicationContext()) != null;
+    }
+
+    public void goToWorkoutScreen(View view){
+        Intent i = new Intent(this, WorkoutScreen.class);
+        startActivity(i);
     }
 
 
