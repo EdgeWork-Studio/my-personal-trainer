@@ -32,7 +32,7 @@
     <string name="rci">Recommended Calorie Intake</string>
     <string name="streak">Workouts Completed</string>
     <string name="first_greet">Let\'s get to know you better!</string>
-
+    <string name="mark_complete">Completed</string>
 
     <string-array name="muscle_groups">
         <item>Shoulders</item>
@@ -70,8 +70,8 @@
     </string-array>
     <string-array name="workout_location">
         <item>Gym</item>
-        <item>Body Weight</item>
         <item>Dumbbell</item>
+        <item>Body Weight</item>
     </string-array>
     <string-array name="gym_options">
         <item>Power</item>

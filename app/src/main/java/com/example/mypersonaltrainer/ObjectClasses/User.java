@@ -8,7 +8,7 @@ public class User {
     private String userID, email, displayName, activityLevel, experience, workoutType, trainingLocation, muscleFocus, weightGoal; //BEGINNER, NOVICE, INTERMEDIATE, ADVANCED, ELITE
     private Boolean man;
     private Double weight, height, bodyFat = 0.0; //weight in kg, height in cm
-    private Integer age, tdee, days;
+    private Integer age, tdee, days, completedWorkouts;
     private ArrayList<Workout> routine;
 
 
@@ -31,6 +31,7 @@ public class User {
         this.age = age;
         this.weightGoal = goal;
         this.tdee = calculateTDEE();
+        this.completedWorkouts = 0;
     }
     public User(FirebaseUser account, String activityLevel, String experience, Boolean man, Double weight, Double height, Double bodyFat, Integer age, String goal){
         this.userID = account.getUid();
@@ -45,6 +46,7 @@ public class User {
         this.age = age;
         this.weightGoal = goal;
         this.tdee = calculateTDEE();
+        this.completedWorkouts = 0;
     }
 
     public Integer calculateTDEE(){ //weight in kg, height in cm
@@ -127,6 +129,15 @@ public class User {
     public ArrayList<Workout> getRoutine() {
         return routine;
     }
+
+    public Integer getCompletedWorkouts() {
+        return completedWorkouts;
+    }
+
+    public void setCompletedWorkouts(Integer completedWorkouts) {
+        this.completedWorkouts = completedWorkouts;
+    }
+
     public void setRoutine(ArrayList<Workout> routine) {
         this.routine = routine;
     }

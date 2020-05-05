@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.mypersonaltrainer.ObjectClasses.Constants;
+import com.example.mypersonaltrainer.ObjectClasses.Exercise;
 import com.example.mypersonaltrainer.ObjectClasses.User;
 import com.example.mypersonaltrainer.ObjectClasses.Workout;
 import com.example.mypersonaltrainer.ObjectClasses.WorkoutGenerator;
@@ -50,6 +51,7 @@ public class Home extends AppCompatActivity {
             if(json.equals("user not found")) goToBioCollec();
             else{
                 user = gson.fromJson(json, User.class);
+                user.setCompletedWorkouts(0);
                 if(user.getMuscleFocus() == null) goToBioCollec();
                 else{
                     ArrayList<Workout> workout = user.getRoutine();
@@ -74,16 +76,27 @@ public class Home extends AppCompatActivity {
             String json = mPrefs.getString("user", "user not found");
             if(json.equals("user not found")) goToBioCollec();
             else {
-                ListView lv = findViewById(R.id.list_curr_workout);
-                ArrayAdapter<Workout> arrayAdapter = new ArrayAdapter<Workout>(this, android.R.layout.simple_list_item_1, user.getRoutine());
-                lv.setAdapter(arrayAdapter);
+                updateCurrentWorkout();
                 TextView tv = findViewById(R.id.val_rci);
                 String tdee = "~" + user.getTdee();
                 tv.setText(tdee);
+                tv = findViewById(R.id.val_streak);
+                tv.setText(user.getCompletedWorkouts()+"");
             }
         }
     }
 
+    public void markComplete(View view){
+        user.setCompletedWorkouts(user.getCompletedWorkouts()+1);
+        TextView tv = findViewById(R.id.val_streak);
+        tv.setText(user.getCompletedWorkouts()+"");
+        updateCurrentWorkout();
+        Gson gson = new Gson();
+        String json = gson.toJson(user);
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        prefsEditor.putString("user", json);
+        prefsEditor.commit();
+    }
     public void clearPrefs(View view){
         mPrefs.edit().remove("user").commit();
         goToBioCollec();
@@ -92,6 +105,20 @@ public class Home extends AppCompatActivity {
     public void goToProfile(View view){
         Intent i = new Intent(this, Profile.class);
         startActivity(i);
+    }
+
+    private void updateCurrentWorkout(){
+        ListView lv = findViewById(R.id.list_curr_workout);
+        ArrayList<String> exercises = new ArrayList<>();
+        Workout workout = user.getRoutine().get(user.getCompletedWorkouts()%user.getDays());
+        exercises.add(workout.getTitle());
+        for(Exercise e:(ArrayList<Exercise>) workout.getWorkout()){
+            if(e==null) exercises.add("add more exercises lazy dev");
+            else
+                exercises.add(e.getSetsAndReps(user.getExperience(), user.getWorkoutType()) + "\t\t" + e.getName() + "\t\t" + e.getLocationType());
+        }
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, exercises);
+        lv.setAdapter(arrayAdapter);
     }
 
     private void goToSignIn(){
