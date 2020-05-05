@@ -9,15 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WorkoutScreen"></activity>
-        <activity android:name=".Profile" />
-        <activity android:name=".MuscleFocus" />
-        <activity android:name=".BiometricCollection" />
+        <activity
+            android:name=".WorkoutScreen"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".Profile"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".MuscleFocus"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".BiometricCollection"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".WorkoutPrefCollection"
             android:label="@string/title_activity_setup1"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SignIn" />
+        <activity
+            android:name=".SignIn"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
