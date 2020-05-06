@@ -73,9 +73,7 @@ public class Home extends AppCompatActivity {
     public void onResume(){
         super.onResume();
         if(isSignedIn()) {
-            String json = mPrefs.getString("user", "user not found");
-            if(json.equals("user not found")) goToBioCollec();
-            else {
+            if(user.getMuscleFocus()!=null){
                 updateCurrentWorkout();
                 TextView tv = findViewById(R.id.val_rci);
                 String tdee = "~" + user.getTdee();
@@ -83,6 +81,7 @@ public class Home extends AppCompatActivity {
                 tv = findViewById(R.id.val_streak);
                 tv.setText(user.getCompletedWorkouts()+"");
             }
+            else goToBioCollec();
         }
     }
 

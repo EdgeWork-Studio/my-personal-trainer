@@ -22,61 +22,71 @@
                 android:id="@+id/radio_shoulders"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Shoulders" />
+                android:text="Shoulders"
+                android:textColor="@color/textColor" />
 
             <RadioButton
                 android:id="@+id/radio_chest"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Chest" />
+                android:text="Chest"
+                android:textColor="@color/textColor" />
 
             <RadioButton
                 android:id="@+id/radio_biceps"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Biceps" />
+                android:text="Biceps"
+                android:textColor="@color/textColor" />
 
             <RadioButton
                 android:id="@+id/radio_triceps"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Triceps" />
+                android:text="Triceps"
+                android:textColor="@color/textColor" />
 
             <RadioButton
                 android:id="@+id/radio_back"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Back" />
+                android:text="Back"
+                android:textColor="@color/textColor" />
 
             <RadioButton
                 android:id="@+id/radio_abs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Abs" />
+                android:text="Abs"
+                android:textColor="@color/textColor" />
 
             <RadioButton
                 android:id="@+id/radio_butt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Butt" />
+                android:text="Butt"
+                android:textColor="@color/textColor" />
 
             <RadioButton
                 android:id="@+id/radio_quads"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Quads" />
+                android:text="Quads"
+                android:textColor="@color/textColor" />
 
             <RadioButton
                 android:id="@+id/radio_ham"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hamstrings" />
+                android:text="Hamstrings"
+                android:textColor="@color/textColor" />
 
             <RadioButton
                 android:id="@+id/radio_calves"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Calves" />
+                android:text="Calves"
+                android:textColor="@color/textColor" />
         </RadioGroup>
     </ScrollView>
 
@@ -86,6 +96,7 @@
         android:layout_height="wrap_content"
         android:onClick="muscleFocusCollection"
         android:text="@string/submit"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

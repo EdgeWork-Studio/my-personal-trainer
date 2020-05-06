@@ -20,7 +20,12 @@
         <item name="android:textColor">@color/textColor</item>
         <item name="android:colorButtonNormal">@color/colorAccent</item>
         <item name="android:colorBackground">@color/colorPrimaryDark</item>
+        <item name="android:buttonTint">@color/colorAccent</item>
 
+    </style>
+
+    <style name="mySpinnerItemStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+        <item name="android:textColor">@color/textColor</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

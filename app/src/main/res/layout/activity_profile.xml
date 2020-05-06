@@ -45,13 +45,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:text="@string/male" />
+                        android:text="@string/male"
+                        android:textColor="#FFFFFF" />
 
                     <RadioButton
                         android:id="@+id/radio_female"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/female" />
+                        android:text="@string/female"
+                        android:textColor="#FFFFFF" />
                 </RadioGroup>
             </LinearLayout>
 
@@ -69,8 +71,10 @@
                     android:id="@+id/input_age"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/textColor"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textColor="@color/textColor" />
 
             </LinearLayout>
 
@@ -101,7 +105,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="true"
-                            android:text="@string/pounds" />
+                            android:text="@string/pounds"
+                            android:textColor="#FFFFFF" />
 
                         <RadioButton
                             android:id="@+id/radio_kilos"
@@ -109,17 +114,20 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="true"
-                            android:text="@string/kilos" />
+                            android:text="@string/kilos"
+                            android:textColor="#FFFFFF" />
                     </RadioGroup>
 
                 </LinearLayout>
 
                 <EditText
                     android:id="@+id/input_weight"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/textColor"
                     android:ems="10"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/textColor" />
             </LinearLayout>
 
             <LinearLayout
@@ -150,14 +158,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:checked="true"
-                            android:text="@string/inches" />
+                            android:text="@string/inches"
+                            android:textColor="#FFFFFF" />
 
                         <RadioButton
                             android:id="@+id/radio_cm"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:checked="true"
-                            android:text="@string/cm" />
+                            android:text="@string/cm"
+                            android:textColor="#FFFFFF" />
                     </RadioGroup>
                 </LinearLayout>
 
@@ -166,8 +176,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:backgroundTint="@color/textColor"
                     android:ems="10"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/textColor" />
             </LinearLayout>
 
             <LinearLayout
