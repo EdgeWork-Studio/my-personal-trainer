@@ -114,7 +114,7 @@ public class Home extends AppCompatActivity {
         for(Exercise e:(ArrayList<Exercise>) workout.getWorkout()){
             if(e==null) exercises.add("add more exercises lazy dev");
             else
-                exercises.add(e.getSetsAndReps(user.getExperience(), user.getWorkoutType()) + "\t \t \t" + e.getName() + "\t\t" + e.getLocationType());
+                exercises.add(e.getSetsAndReps(user.getExperience(), user.getWorkoutType()) + "\t \t \t" + e.getName());
         }
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, exercises);
         lv.setAdapter(arrayAdapter);
