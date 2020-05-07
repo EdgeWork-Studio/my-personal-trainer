@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="signOut"
-        android:text="@string/sign_out" />
+        android:text="@string/sign_out"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -347,7 +348,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="saveChanges"
-            android:text="@string/confirm" />
+            android:text="@string/confirm"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused" />
 
         <Button
             android:id="@+id/btn_cancel"
@@ -355,7 +357,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="btnReturnToHome"
-            android:text="@string/cancel" />
+            android:text="@string/cancel"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused" />
 
     </LinearLayout>
 </LinearLayout>
