@@ -114,7 +114,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:background="#0288D1"
+        android:background="#0B1240"
         app:layout_constraintBottom_toTopOf="@+id/btn_completed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

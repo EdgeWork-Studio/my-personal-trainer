@@ -29,9 +29,9 @@ public class WorkoutScreen extends AppCompatActivity {
         if(json.equals("user not found")) goToBioCollec();
         else{
             user = gson.fromJson(json, User.class);
-            ListView lv = findViewById(R.id.list_full_workout);
-            ArrayAdapter<Workout> arrayAdapter = new ArrayAdapter<Workout>(this, android.R.layout.simple_list_item_1, user.getRoutine());
-            lv.setAdapter(arrayAdapter);
+            //ListView lv = findViewById(R.id.list_full_workout);
+            //ArrayAdapter<Workout> arrayAdapter = new ArrayAdapter<Workout>(this, android.R.layout.simple_list_item_1, user.getRoutine());
+            //lv.setAdapter(arrayAdapter);
         }
     }
 
