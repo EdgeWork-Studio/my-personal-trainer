@@ -55,7 +55,8 @@ public class WorkoutPrefCollection extends AppCompatActivity {
         workoutType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 TextView textView = (TextView) workoutType.getChildAt(0 );
-                textView.setTextColor(Color.rgb(249, 249, 249));
+                if(textView!=null)
+                    textView.setTextColor(Color.rgb(249, 249, 249));
             }
             public void onNothingSelected(AdapterView<?> adapterView) { return; }
         });
@@ -74,7 +75,7 @@ public class WorkoutPrefCollection extends AppCompatActivity {
         user.setTrainingLocation(trainingLocation);
         user.setWorkoutType(workoutType);
         user.setDays(days);
-        //user.setTdee(user.calculateTDEE(user.getWeight(), user.getHeight(), Integer.parseInt(user.getAge().toString()), user.getBodyFat(), user.getMan(), user.getActivityLevel()));
+        user.setTdee(user.calculateTDEE());
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         json = gson.toJson(user); // myObject - instance of MyObject
         prefsEditor.putString("user", json);

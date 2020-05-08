@@ -73,7 +73,7 @@ public class Home extends AppCompatActivity {
     public void onResume(){
         super.onResume();
         if(isSignedIn()) {
-            if(user.getMuscleFocus()!=null){
+            if(user!=null && user.getMuscleFocus()!=null){
                 updateCurrentWorkout();
                 TextView tv = findViewById(R.id.val_rci);
                 String tdee = "~" + user.getTdee();

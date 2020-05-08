@@ -33,7 +33,13 @@
     <string name="rci">Recommended Caloric Intake</string>
     <string name="streak">Workouts Completed</string>
     <string name="first_greet">Let\'s get to know you better!</string>
+    <string name="muscle_focus_greet">Select an area you think needs some special attention!</string>
+    <string name="workout_pref_greet">Select your preferences for your personalized!</string>
     <string name="mark_complete">Completed</string>
+    <string name="workout_type">Workout Type</string>
+    <string name="train_loc">Workout Equipment</string>
+    <string name="workout_days">Workout Days</string>
+    <string name="muscle_focus">Target Muscle</string>
 
     <string-array name="muscle_groups">
         <item>Shoulders</item>
@@ -92,6 +98,6 @@
         <item>Lose Weight</item>
         <item>Gain Weight</item>
     </string-array>
-    <string name="title_activity_profile">Profile</string>
+
 
 </resources>

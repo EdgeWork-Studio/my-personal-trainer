@@ -7,6 +7,12 @@
     android:orientation="vertical"
     tools:context=".BiometricCollection">
 
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/logo_with_text" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"

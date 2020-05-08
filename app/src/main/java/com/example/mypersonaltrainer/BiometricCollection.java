@@ -40,11 +40,11 @@ public class BiometricCollection extends AppCompatActivity {
         temp = ((TextView) findViewById(R.id.input_age)).getText().toString();
         age = Integer.valueOf(temp);
         temp = ((TextView) findViewById(R.id.input_weight)).getText().toString();
-        weight = Double.valueOf(temp);
-        if(((RadioButton) findViewById(R.id.radio_pounds)).isChecked()) weight = weight * 0.45359239;
+        weight = Math.round(Double.valueOf(temp) * 100.0) / 100.0;
+        if(((RadioButton) findViewById(R.id.radio_pounds)).isChecked()) weight = Math.round(weight * 45.359239) / 100.0;
         temp = ((TextView) findViewById(R.id.input_height)).getText().toString();
-        height = Double.valueOf(temp);
-        if(((RadioButton) findViewById(R.id.radio_inches)).isChecked()) height = height * 2.54;
+        height = Math.round(Double.valueOf(temp) * 100.0) / 100.0;
+        if(((RadioButton) findViewById(R.id.radio_inches)).isChecked()) height = Math.round(height * 254.0) / 100.0;
         temp = ((TextView) findViewById(R.id.input_body_fat)).getText().toString();
         if(!temp.equals(""))
             bodyfat = Double.valueOf(temp);

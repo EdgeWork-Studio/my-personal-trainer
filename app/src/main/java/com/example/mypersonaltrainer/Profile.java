@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -152,28 +153,15 @@ public class Profile extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> adapterView) { return; }
         });
 
-        /*workoutType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        workoutType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String sel1 = trainingLocation.getSelectedItem().toString();
-                String[] days = null;
-                switch (sel1){
-                    case Constants.GYM:
-                        days = getResources().getStringArray(R.array.gym_options);
-                        break;
-                    case Constants.BODY:
-                        days = getResources().getStringArray(R.array.body_options);
-                        break;
-                    case Constants.DUMB:
-                        days = getResources().getStringArray(R.array.free_options);
-                        break;
-                }
-                ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, days); //selected item will look like a spinner set from XML
-                spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                workoutType.setAdapter(spinnerArrayAdapter);
-
+                TextView textView = (TextView) workoutType.getChildAt(0 );
+                if(textView!=null)
+                    textView.setTextColor(Color.rgb(249, 249, 249));
             }
             public void onNothingSelected(AdapterView<?> adapterView) { return; }
-        });*/
+        });
+
     }
 
 
@@ -203,11 +191,11 @@ public class Profile extends AppCompatActivity {
         temp = ((TextView) findViewById(R.id.input_age)).getText().toString();
         age = Integer.valueOf(temp);
         temp = ((TextView) findViewById(R.id.input_weight)).getText().toString();
-        weight = Double.valueOf(temp);
-        if(((RadioButton) findViewById(R.id.radio_pounds)).isChecked()) weight = weight * 0.45359239;
+        weight = Math.round(Double.valueOf(temp) * 100.0) / 100.0;
+        if(((RadioButton) findViewById(R.id.radio_pounds)).isChecked()) weight = Math.round(weight * 45.359239) / 100.0;
         temp = ((TextView) findViewById(R.id.input_height)).getText().toString();
-        height = Double.valueOf(temp);
-        if(((RadioButton) findViewById(R.id.radio_inches)).isChecked()) height = height * 2.54;
+        height = Math.round(Double.valueOf(temp) * 100.0) / 100.0;
+        if(((RadioButton) findViewById(R.id.radio_inches)).isChecked()) height = Math.round(height * 254.0) / 100.0;
         temp = ((TextView) findViewById(R.id.input_body_fat)).getText().toString();
         if(!temp.equals(""))
             bodyfat = Double.valueOf(temp);

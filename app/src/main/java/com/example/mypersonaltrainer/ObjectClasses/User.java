@@ -30,7 +30,7 @@ public class User {
         this.height = height; //in cm
         this.age = age;
         this.weightGoal = goal;
-        this.tdee = calculateTDEE();
+        this.tdee = 0;
         this.completedWorkouts = 0;
     }
     public User(FirebaseUser account, String activityLevel, String experience, Boolean man, Double weight, Double height, Double bodyFat, Integer age, String goal){
@@ -45,7 +45,7 @@ public class User {
         this.bodyFat = bodyFat;
         this.age = age;
         this.weightGoal = goal;
-        this.tdee = calculateTDEE();
+        this.tdee = 0;
         this.completedWorkouts = 0;
     }
 
