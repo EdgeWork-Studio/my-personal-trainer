@@ -20,7 +20,7 @@
     <string name="inches">Inches</string>
     <string name="cm">Centimetres</string>
     <string name="height">Height</string>
-    <string name="activity_level">Activity Level</string>
+    <string name="activity_level">Lifestyle Activity Level</string>
     <string name="bf_optional">Body Fat Percentage (optional)</string>
     <string name="exp">Experience</string>
     <string name="submit">Submit</string>
@@ -57,10 +57,9 @@
     </string-array>
     <string-array name="activity_levels">
         <item>Sedentary</item>
-        <item>Light Exercise (1-2 days/week)</item>
-        <item>Moderate Exercise (3-5 days/week)</item>
-        <item>Heavy Exercise (6-7 days/week)</item>
-        <item>Athlete (2x /day)</item>
+        <item>Lightly Active</item>
+        <item>Moderately Active</item>
+        <item>Very Active</item>
     </string-array>
     <string-array name="experience">
         <item>Beginner</item>

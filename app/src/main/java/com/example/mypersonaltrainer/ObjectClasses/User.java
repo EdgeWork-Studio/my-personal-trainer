@@ -53,8 +53,6 @@ public class User {
         double bmr = 0, adjustedWeight;
         Integer returnValue = 0;
 
-        System.out.println("height: " + height + " weight: " + weight);
-
         if(bodyFat >= 1) adjustedWeight = weight * ((100.0 - bodyFat) / 100);
         else if(man) adjustedWeight = weight * 0.80;
         else adjustedWeight = weight * 0.75;
@@ -62,16 +60,23 @@ public class User {
         if(man) bmr = 66 + (13.7 * adjustedWeight) + (5 * height) - (6.8 * age);
         else bmr = 655 + (9.6 * adjustedWeight) + (1.8 * height) - (4.7 * age);
 
-        System.out.println("bmr: " + bmr);
+        int temp = days;
 
-        switch (activityLevel){
-            case Constants.SEDENTARY: bmr = bmr * 1.2; break;
-            case Constants.LIGHTLY: bmr = bmr * 1.375; break;
-            case Constants.MODERATELY: bmr = bmr * 1.55; break;
-            case Constants.VERY: bmr = bmr * 1.725; break;
-            case Constants.EXTREMELY: bmr = bmr * 1.9; break;
+        switch (activityLevel) {
+            case Constants.LIGHTLY:
+                temp += 2;
+                break;
+            case Constants.MODERATELY:
+                temp += 4;
+                break;
+            case Constants.VERY:
+                temp += 6;
+                break;
         }
-        System.out.println("bmr2: " + bmr);
+        if(temp<3) bmr = bmr * 1.2;
+        else if(temp<6) bmr = bmr * 1.375;
+        else if (temp<9) bmr = bmr * 1.55;
+        else if(temp>=9) bmr = bmr * 1.725;
         returnValue = Integer.valueOf(((Long) (Math.round(bmr))).toString());
         if(weightGoal.equals(Constants.LOSE)) returnValue = returnValue - 500;
         else if(weightGoal.equals(Constants.GAIN)) returnValue = returnValue + 500;

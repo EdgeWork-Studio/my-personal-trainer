@@ -72,7 +72,6 @@ public class Profile extends AppCompatActivity {
             case Constants.LIGHTLY: spinner.setSelection(1); break;
             case Constants.MODERATELY: spinner.setSelection(2); break;
             case Constants.VERY: spinner.setSelection(3); break;
-            case Constants.EXTREMELY: spinner.setSelection(4); break;
             default: spinner.setSelection(0); break;
         }
         tv = findViewById(R.id.input_body_fat);
