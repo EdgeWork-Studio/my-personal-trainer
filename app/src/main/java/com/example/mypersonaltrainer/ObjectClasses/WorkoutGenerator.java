@@ -122,6 +122,7 @@ public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleto
         if((targetArea.equals(Constants.QUADS) || targetArea.equals(Constants.HAM) || targetArea.equals(Constants.CALVES) || targetArea.equals(Constants.BUTT) || targetArea.equals(Constants.ABS)))
             exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
         routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 2: Lower " + trainingLocation));
+        exercises.clear();
         exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);

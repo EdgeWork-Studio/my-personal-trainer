@@ -33,7 +33,7 @@
         app:layout_constraintVertical_bias="0.384" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txt_sign_in_greet"
         android:layout_width="217dp"
         android:layout_height="28dp"
         android:text="@string/sign_in_greet"

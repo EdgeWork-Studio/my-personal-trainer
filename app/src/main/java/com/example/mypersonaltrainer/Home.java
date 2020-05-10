@@ -83,6 +83,7 @@ public class Home extends AppCompatActivity {
             }
             else goToBioCollec();
         }
+        else goToSignIn();
     }
 
     public void markComplete(View view){

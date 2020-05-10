@@ -11,6 +11,7 @@
         android:id="@+id/img_logo"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:focusableInTouchMode="true"
         app:srcCompat="@drawable/logo_with_text" />
 
     <ScrollView
