@@ -214,17 +214,18 @@ public class Profile extends AppCompatActivity {
         user.setWeightGoal(goal);
         user.setActivityLevel(activityLevel);
         user.setBodyFat(bodyfat);
-        user.setExperience(experience);
-        user.setTrainingLocation(trainingLocation);
-        user.setWorkoutType(workoutType);
-        user.setDays(days);
-        user.setMuscleFocus(muscleFocus);
         user.setTdee(user.calculateTDEE());
-        WorkoutGenerator wg = new WorkoutGenerator(getApplicationContext());
-        ArrayList<Workout> routine;
-        routine = wg.getRoutine(user.getDays(), user.getTrainingLocation(), user.getMuscleFocus());
-        user.setRoutine(routine);
-
+        if(!(user.getExperience().equals(experience) && user.getTrainingLocation().equals(trainingLocation) && user.getWorkoutType().equals(workoutType) && user.getDays()==days && user.getMuscleFocus().equals(muscleFocus))){
+            user.setExperience(experience);
+            user.setTrainingLocation(trainingLocation);
+            user.setWorkoutType(workoutType);
+            user.setDays(days);
+            user.setMuscleFocus(muscleFocus);
+            WorkoutGenerator wg = new WorkoutGenerator(getApplicationContext());
+            ArrayList<Workout> routine;
+            routine = wg.getRoutine(user.getDays(), user.getTrainingLocation(), user.getMuscleFocus());
+            user.setRoutine(routine);
+        }
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         Gson gson = new Gson();
         String json = gson.toJson(user);

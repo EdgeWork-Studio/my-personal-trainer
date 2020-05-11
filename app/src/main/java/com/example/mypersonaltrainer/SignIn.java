@@ -64,6 +64,8 @@ public class SignIn extends AppCompatActivity {
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
+                TextView tv = findViewById(R.id.txt_sign_in_greet);
+                tv.setText("Sorry something went wrong! Please try again.");
                 Log.w("blab", "Google sign in failed", e);
                 // ...
             }
