@@ -2,6 +2,7 @@ package com.example.mypersonaltrainer;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Context;
 import android.content.Intent;
@@ -27,6 +28,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.gson.Gson;
 
+import org.apache.commons.lang3.math.NumberUtils;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -182,24 +184,37 @@ public class Profile extends AppCompatActivity {
 
     public void saveChanges(View view){
         String muscleFocus, activityLevel, experience, temp, goal, trainingLocation, workoutType;
-        Integer age, days;
-        Double weight, height, bodyfat;
-        Boolean man;
+        Integer age=0, days;
+        Double weight=0.0, height=0.0, bodyfat;
+        Boolean man, valid=true;
         man = ((RadioButton) findViewById(R.id.radio_male)).isChecked();
         activityLevel = ((Spinner) findViewById(R.id.spn_activity)).getSelectedItem().toString();
         experience = ((Spinner) findViewById(R.id.spn_experience)).getSelectedItem().toString();
         temp = ((TextView) findViewById(R.id.input_age)).getText().toString();
-        age = Integer.valueOf(temp);
+        if(!NumberUtils.isParsable(temp)) valid = false;
+        else age = Integer.valueOf(temp);
+        if(age<5) valid=false;
         temp = ((TextView) findViewById(R.id.input_weight)).getText().toString();
-        weight = Math.round(Double.valueOf(temp) * 100.0) / 100.0;
-        if(((RadioButton) findViewById(R.id.radio_pounds)).isChecked()) weight = Math.round(weight * 45.359239) / 100.0;
+        if(!NumberUtils.isParsable(temp)) valid = false;
+        else {
+            weight = Math.round(Double.valueOf(temp) * 100.0) / 100.0;
+            if(weight<50 || weight>400) valid=false;
+            if (((RadioButton) findViewById(R.id.radio_pounds)).isChecked())
+                weight = Math.round(weight * 45.359239) / 100.0;
+        }
         temp = ((TextView) findViewById(R.id.input_height)).getText().toString();
-        height = Math.round(Double.valueOf(temp) * 100.0) / 100.0;
-        if(((RadioButton) findViewById(R.id.radio_inches)).isChecked()) height = Math.round(height * 254.0) / 100.0;
+        if(!NumberUtils.isParsable(temp)) valid = false;
+        else {
+            height = Math.round(Double.valueOf(temp) * 100.0) / 100.0;
+            if(height<50 || height>400) valid=false;
+            if (((RadioButton) findViewById(R.id.radio_inches)).isChecked())
+                height = Math.round(height * 254.0) / 100.0;
+        }
         temp = ((TextView) findViewById(R.id.input_body_fat)).getText().toString();
-        if(!temp.equals(""))
+        if(NumberUtils.isParsable(temp))
             bodyfat = Double.valueOf(temp);
         else bodyfat = 0.0;
+        if(bodyfat<0) valid=false;
         goal = ((Spinner) findViewById(R.id.spn_weight_goal)).getSelectedItem().toString();
         trainingLocation = ((Spinner) findViewById(R.id.spn_trainloc)).getSelectedItem().toString();
         workoutType = ((Spinner) findViewById(R.id.spn_worktype)).getSelectedItem().toString();
@@ -207,31 +222,38 @@ public class Profile extends AppCompatActivity {
         days = Integer.valueOf(temp);
         muscleFocus = ((Spinner) findViewById(R.id.spn_muscleFocus)).getSelectedItem().toString();
 
-        user.setMan(man);
-        user.setAge(age);
-        user.setWeight(weight);
-        user.setHeight(height);
-        user.setWeightGoal(goal);
-        user.setActivityLevel(activityLevel);
-        user.setBodyFat(bodyfat);
-        user.setTdee(user.calculateTDEE());
-        if(!(user.getExperience().equals(experience) && user.getTrainingLocation().equals(trainingLocation) && user.getWorkoutType().equals(workoutType) && user.getDays()==days && user.getMuscleFocus().equals(muscleFocus))){
-            user.setExperience(experience);
-            user.setTrainingLocation(trainingLocation);
-            user.setWorkoutType(workoutType);
-            user.setDays(days);
-            user.setMuscleFocus(muscleFocus);
-            WorkoutGenerator wg = new WorkoutGenerator(getApplicationContext());
-            ArrayList<Workout> routine;
-            routine = wg.getRoutine(user.getDays(), user.getTrainingLocation(), user.getMuscleFocus());
-            user.setRoutine(routine);
+        if(valid) {
+            user.setMan(man);
+            user.setAge(age);
+            user.setWeight(weight);
+            user.setHeight(height);
+            user.setWeightGoal(goal);
+            user.setActivityLevel(activityLevel);
+            user.setBodyFat(bodyfat);
+            user.setTdee(user.calculateTDEE());
+            if (!(user.getExperience().equals(experience) && user.getTrainingLocation().equals(trainingLocation) && user.getWorkoutType().equals(workoutType) && user.getDays() == days && user.getMuscleFocus().equals(muscleFocus))) {
+                user.setExperience(experience);
+                user.setTrainingLocation(trainingLocation);
+                user.setWorkoutType(workoutType);
+                user.setDays(days);
+                user.setMuscleFocus(muscleFocus);
+                WorkoutGenerator wg = new WorkoutGenerator(getApplicationContext());
+                ArrayList<Workout> routine;
+                routine = wg.getRoutine(user.getDays(), user.getTrainingLocation(), user.getMuscleFocus());
+                user.setRoutine(routine);
+            }
+            SharedPreferences.Editor prefsEditor = mPrefs.edit();
+            Gson gson = new Gson();
+            String json = gson.toJson(user);
+            prefsEditor.putString("user", json);
+            prefsEditor.commit();
+            returnToHome();
         }
-        SharedPreferences.Editor prefsEditor = mPrefs.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(user);
-        prefsEditor.putString("user", json);
-        prefsEditor.commit();
-        returnToHome();
+        else{
+            TextView tv = findViewById(R.id.txt_profile);
+            tv.setText("Please ensure all data entered is valid");
+            tv.setTextColor(ContextCompat.getColor(this, R.color.error));
+        }
     }
     public void btnReturnToHome(View view){
         returnToHome();

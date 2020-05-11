@@ -6,4 +6,5 @@
     <color name="textColor">#FFFFFF</color>
     <color name="navBarColor">#345489</color>
     <color name="list1Color">#0B1240</color>
+    <color name="error">#FF0000</color>
 </resources>

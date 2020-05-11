@@ -66,6 +66,7 @@ public class SignIn extends AppCompatActivity {
                 // Google Sign In failed, update UI appropriately
                 TextView tv = findViewById(R.id.txt_sign_in_greet);
                 tv.setText("Sorry something went wrong! Please try again.");
+                tv.setTextColor(ContextCompat.getColor(this, R.color.error));
                 Log.w("blab", "Google sign in failed", e);
                 // ...
             }
