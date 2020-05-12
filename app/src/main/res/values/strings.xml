@@ -99,6 +99,15 @@
         <item>Gain Weight</item>
     </string-array>
 
-    <string name="finish_workout">Finish Workout</string>
-    <string name="next_exercise">Next Exercise</string>
+    <string name="shoulders">Shoulders</string>
+    <string name="chest">Chest</string>
+    <string name="biceps">Biceps</string>
+    <string name="triceps">Triceps</string>
+    <string name="back">Back</string>
+    <string name="abs">Abs</string>
+    <string name="glutes">Glutes</string>
+    <string name="quads">Quads</string>
+    <string name="hamstrings">Hamstrings</string>
+    <string name="calves">Calves</string>
+
 </resources>
