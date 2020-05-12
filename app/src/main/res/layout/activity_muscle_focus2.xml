@@ -1,6 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</ConstraintLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="412dp"
+        android:layout_height="75dp"
+        android:background="@color/navBarColor"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/backarrow"
+            android:layout_width="70dp"
+            android:layout_height="72dp"
+            android:background=""
+            android:src="@drawable/back_arrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/toolbar"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolbar"
+            app:layout_constraintVertical_bias="0.004" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="240dp"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/toolbar_logo"
+            tools:layout_editor_absoluteX="142dp"
+            tools:layout_editor_absoluteY="-7dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="70dp"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/more"
+            tools:layout_editor_absoluteX="336dp"
+            tools:layout_editor_absoluteY="13dp"
+            android:background=" "/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="345dp"
+        android:layout_height="57dp"
+        android:text="@string/muscle_focus_greet"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="127dp" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="411dp"
+        android:layout_height="371dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.64"
+        tools:layout_editor_absoluteX="0dp">
+
+        <RadioGroup
+            android:id="@+id/radio_group_muscle_focus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:checkedButton="@id/radio_shoulders">
+
+            <RadioButton
+                android:id="@+id/radio_shoulders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shoulders"
+                android:textAlignment="center"
+                android:button="@null"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"
+                android:background="@drawable/shoulders"/>
+
+            <RadioButton
+                android:id="@+id/radio_chest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chest"
+                android:textAlignment="center"
+                android:button="@null"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"
+                android:background="@drawable/chest"/>
+
+            <RadioButton
+                android:id="@+id/radio_biceps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Biceps"
+                android:textAlignment="center"
+                android:button="@null"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"/>
+
+            <RadioButton
+                android:id="@+id/radio_triceps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Triceps"
+                android:textAlignment="center"
+                android:button="@null"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"/>
+
+            <RadioButton
+                android:id="@+id/radio_back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                android:textAlignment="center"
+                android:button="@null"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"/>
+
+            <RadioButton
+                android:id="@+id/radio_abs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Abs"
+                android:textAlignment="center"
+                android:button="@null"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"/>
+
+            <RadioButton
+                android:id="@+id/radio_butt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Butt"
+                android:textAlignment="center"
+                android:button="@null"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"/>
+
+            <RadioButton
+                android:id="@+id/radio_quads"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quads"
+                android:textAlignment="center"
+                android:button="@null"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"/>
+
+            <RadioButton
+                android:id="@+id/radio_ham"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hamstrings"
+                android:textAlignment="center"
+                android:button="@null"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"/>
+
+            <RadioButton
+                android:id="@+id/radio_calves"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Calves"
+                android:textAlignment="center"
+                android:button="@null"
+                android:textColor="@color/textColor" />
+        </RadioGroup>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="167dp"
+        android:layout_height="46dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="639dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

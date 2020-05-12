@@ -6,30 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".WorkoutScreen">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="409dp"
-        android:layout_height="196dp"
-        android:background="@color/list1Color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="149dp"
-        android:layout_height="50dp"
-        android:text="Button"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="@+id/recyclerView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.92" />
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar2"
+   <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="412dp"
         android:layout_height="75dp"
         android:background="@color/navBarColor"
@@ -38,18 +16,73 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0">
 
-    <ImageView
-        android:id="@+id/img_logo"
-        android:layout_width="91dp"
-        android:layout_height="76dp"
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/backarrow"
+        android:layout_width="70dp"
+        android:layout_height="72dp"
+        android:background=""
+        android:src="@drawable/back_arrow"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.004" />
+
+       <ImageView
+           android:id="@+id/logo"
+           android:layout_width="240dp"
+           android:layout_height="80dp"
+           app:srcCompat="@drawable/toolbar_logo"
+           tools:layout_editor_absoluteX="142dp"
+           tools:layout_editor_absoluteY="-7dp" />
+
+       <ImageButton
+           android:id="@+id/imageButton"
+           android:layout_width="70dp"
+           android:layout_height="80dp"
+           app:srcCompat="@drawable/more"
+           tools:layout_editor_absoluteX="336dp"
+           tools:layout_editor_absoluteY="13dp"
+           android:background=" "/>
+
+</androidx.appcompat.widget.Toolbar>
+
+    <Button
+        android:id="@+id/finish"
+        android:layout_width="209dp"
+        android:layout_height="50dp"
+        android:text="Start Workout"
+        android:textColor="@color/textColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.942"
+        tools:layout_editor_absoluteX="100dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Workout Day"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/logo_with_text" />
+        app:layout_constraintVertical_bias="0.173" />
+
+    <ListView
+        android:id="@+id/mobile_list"
+        android:layout_width="415dp"
+        android:layout_height="401dp"
+        android:background="@color/list1Color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.606"
+        tools:layout_editor_absoluteX="-2dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -47,12 +47,13 @@
 
     <Button
         android:id="@+id/btn_sign_in"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_width="247dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="177dp"
+        android:drawableLeft="@drawable/google_sign_in"
         android:onClick="signIn"
         android:text="@string/sign_in_long"
-        android:textColor="@color/list1Color"
+        android:textColor="@color/textColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

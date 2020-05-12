@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MyPersonalTrainer</string>
     <string name="title_activity_home">Home</string>
-    <string name="sign_in_long">Sign In With Google</string>
+    <string name="sign_in_long">Continue With Google</string>
     <string name="sign_in_greet">It\'s easier than ever!</string>
     <string name="cancel">Cancel</string>
     <string name="confirm">Confirm</string>
@@ -99,5 +99,6 @@
         <item>Gain Weight</item>
     </string-array>
 
-
+    <string name="finish_workout">Finish Workout</string>
+    <string name="next_exercise">Next Exercise</string>
 </resources>
