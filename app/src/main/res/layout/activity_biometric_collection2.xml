@@ -21,7 +21,6 @@
             android:id="@+id/backarrow"
             android:layout_width="70dp"
             android:layout_height="72dp"
-            android:background=""
             android:src="@drawable/back_arrow"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/toolbar"
@@ -42,8 +41,7 @@
             android:id="@+id/cancel"
             android:layout_width="70dp"
             android:layout_height="80dp"
-            android:background=" "
-            app:srcCompat="@drawable/Cancel"
+            app:srcCompat="@drawable/cancel"
             tools:layout_editor_absoluteX="336dp"
             tools:layout_editor_absoluteY="13dp" />
 

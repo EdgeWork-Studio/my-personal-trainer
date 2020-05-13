@@ -30,7 +30,7 @@ public class WorkoutScreen extends AppCompatActivity {
         // Find the toolbar view inside the activity layout
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        //Toolbar logo
+        /*//Toolbar logo
         toolbar.setLogo(R.id.logo);
 
         //Back Button
@@ -64,7 +64,7 @@ public class WorkoutScreen extends AppCompatActivity {
             //ListView lv = findViewById(R.id.list_full_workout);
             //ArrayAdapter<Workout> arrayAdapter = new ArrayAdapter<Workout>(this, android.R.layout.simple_list_item_1, user.getRoutine());
             //lv.setAdapter(arrayAdapter);
-        }
+        }*/
     }
 
     private void goToBioCollec(){
