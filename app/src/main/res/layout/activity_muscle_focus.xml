@@ -1,21 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="@color/navBarColor"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme">
 
-    <ImageView
-        android:id="@+id/img_logo"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        app:srcCompat="@drawable/logo_with_text" />
+        <ImageButton
+            android:id="@+id/btn_backarrow"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="#00FFFFFF"
+            android:onClick="returnToWorkoutPref"
+            android:src="@drawable/back_arrow"
+            android:tint="#00FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_backarrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/toolbar_logo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/muscle_focus_greet"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_margin="8dp"
         android:layout_weight="1">
 
         <RadioGroup
@@ -24,89 +62,167 @@
             android:layout_height="match_parent"
             android:checkedButton="@id/radio_shoulders">
 
-            <TextView
-                android:id="@+id/txt_focus_greet"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/muscle_focus_greet" />
-
             <RadioButton
                 android:id="@+id/radio_shoulders"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Shoulders"
-                android:textColor="@color/textColor" />
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/shoulders"
+                android:backgroundTint="@color/darkened"
+                android:backgroundTintMode="src_over"
+                android:button="@null"
+                android:onClick="darkenImage"
+                android:text="@string/shoulders"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/radio_chest"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Chest"
-                android:textColor="@color/textColor" />
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/chest"
+                android:backgroundTint="@color/darkened"
+                android:backgroundTintMode="src_over"
+                android:button="@null"
+                android:onClick="darkenImage"
+                android:text="@string/chest"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/radio_biceps"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Biceps"
-                android:textColor="@color/textColor" />
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/biceps"
+                android:backgroundTint="@color/darkened"
+                android:backgroundTintMode="src_over"
+                android:button="@null"
+                android:onClick="darkenImage"
+                android:text="@string/biceps"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/radio_triceps"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Triceps"
-                android:textColor="@color/textColor" />
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/triceps"
+                android:backgroundTint="@color/darkened"
+                android:backgroundTintMode="src_over"
+                android:button="@null"
+                android:onClick="darkenImage"
+                android:text="@string/triceps"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/radio_back"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Back"
-                android:textColor="@color/textColor" />
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/back"
+                android:backgroundTint="@color/darkened"
+                android:backgroundTintMode="src_over"
+                android:button="@null"
+                android:onClick="darkenImage"
+                android:text="@string/back"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/radio_abs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Abs"
-                android:textColor="@color/textColor" />
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/abs"
+                android:backgroundTint="@color/darkened"
+                android:backgroundTintMode="src_over"
+                android:button="@null"
+                android:onClick="darkenImage"
+                android:text="@string/abs"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/radio_butt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Butt"
-                android:textColor="@color/textColor" />
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/glutes"
+                android:backgroundTint="@color/darkened"
+                android:backgroundTintMode="src_over"
+                android:button="@null"
+                android:onClick="darkenImage"
+                android:text="@string/glutes"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/radio_quads"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Quads"
-                android:textColor="@color/textColor" />
+                android:layout_height="0dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/quads"
+                android:backgroundTint="@color/darkened"
+                android:backgroundTintMode="src_over"
+                android:button="@null"
+                android:onClick="darkenImage"
+                android:text="@string/quads"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/radio_ham"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hamstrings"
-                android:textColor="@color/textColor" />
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/hamstrings"
+                android:backgroundTint="@color/darkened"
+                android:backgroundTintMode="src_over"
+                android:button="@null"
+                android:onClick="darkenImage"
+                android:text="@string/hamstrings"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/radio_calves"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Calves"
-                android:textColor="@color/textColor" />
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/calves"
+                android:backgroundTint="@color/darkened"
+                android:backgroundTintMode="src_over"
+                android:button="@null"
+                android:onClick="darkenImage"
+                android:text="@string/calves"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="20sp" />
+
         </RadioGroup>
-    </ScrollView>
+
+    </androidx.core.widget.NestedScrollView>
 
     <Button
         android:id="@+id/btn_submit"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:onClick="muscleFocusCollection"
         android:text="@string/submit"
         android:textColor="@color/common_google_signin_btn_text_dark_focused" />
+
 </LinearLayout>
+

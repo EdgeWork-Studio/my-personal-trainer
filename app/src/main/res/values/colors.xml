@@ -7,4 +7,6 @@
     <color name="navBarColor">#345489</color>
     <color name="list1Color">#0B1240</color>
     <color name="error">#FF0000</color>
+    <color name="darkened">#CC000000</color>
+    <color name="undarkened">#00000000</color>
 </resources>

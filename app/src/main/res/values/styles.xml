@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:statusBarColor">@color/navBarColor</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -16,7 +16,7 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowTranslucentStatus">false</item>
         <item name="android:windowTranslucentNavigation">false</item>
-        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:statusBarColor">@color/navBarColor</item>
         <item name="android:textColor">@color/textColor</item>
         <item name="android:colorButtonNormal">@color/colorAccent</item>
         <item name="android:colorBackground">@color/colorPrimaryDark</item>

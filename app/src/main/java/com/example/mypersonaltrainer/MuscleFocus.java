@@ -1,16 +1,17 @@
 package com.example.mypersonaltrainer;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioGroup;
 
 import com.example.mypersonaltrainer.ObjectClasses.Constants;
-import com.example.mypersonaltrainer.ObjectClasses.Exercise;
 import com.example.mypersonaltrainer.ObjectClasses.User;
 import com.example.mypersonaltrainer.ObjectClasses.Workout;
 import com.example.mypersonaltrainer.ObjectClasses.WorkoutGenerator;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 public class MuscleFocus extends AppCompatActivity {
     private User user;
     private SharedPreferences mPrefs;
+    private View previousView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,5 +61,15 @@ public class MuscleFocus extends AppCompatActivity {
         prefsEditor.commit();
         Intent i = new Intent(this, Home.class);
         startActivity(i);
+    }
+
+    public void returnToWorkoutPref(View view){
+        this.finish();
+    }
+
+    public void darkenImage(View view){
+        if(previousView!=null) previousView.getBackground().setColorFilter(ContextCompat.getColor(this, R.color.darkened), PorterDuff.Mode.DARKEN);
+        previousView = view;
+        view.getBackground().setColorFilter(ContextCompat.getColor(this, R.color.undarkened), PorterDuff.Mode.DARKEN);
     }
 }
