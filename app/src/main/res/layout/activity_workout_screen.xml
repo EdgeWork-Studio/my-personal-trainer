@@ -18,17 +18,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/backarrow"
-        android:layout_width="70dp"
-        android:layout_height="72dp"
-        android:src="@drawable/back_arrow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.004" />
+       <ImageButton
+           android:id="@+id/backarrow"
+           android:layout_width="70dp"
+           android:layout_height="72dp"
+           android:backgroundTint="#00FFFFFF"
+           android:src="@drawable/back_arrow"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toEndOf="@+id/toolbar"
+           app:layout_constraintHorizontal_bias="0.0"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="@+id/toolbar"
+           app:layout_constraintVertical_bias="0.004" />
 
        <ImageView
            android:id="@+id/logo"
@@ -38,22 +39,14 @@
            tools:layout_editor_absoluteX="142dp"
            tools:layout_editor_absoluteY="-7dp" />
 
-       <ImageButton
-           android:id="@+id/imageButton"
-           android:layout_width="70dp"
-           android:layout_height="80dp"
-           app:srcCompat="@drawable/more"
-           tools:layout_editor_absoluteX="336dp"
-           tools:layout_editor_absoluteY="13dp" />
-
-</androidx.appcompat.widget.Toolbar>
+   </androidx.appcompat.widget.Toolbar>
 
     <Button
         android:id="@+id/finish"
         android:layout_width="209dp"
         android:layout_height="50dp"
         android:text="Start Workout"
-        android:textColor="@color/textColor"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.942"
@@ -63,7 +56,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Workout Day"
+        android:text="Full Workout"
         android:textColor="@color/colorPrimary"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
