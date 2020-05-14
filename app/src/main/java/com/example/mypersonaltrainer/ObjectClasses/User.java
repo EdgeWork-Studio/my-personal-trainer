@@ -5,10 +5,10 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 
 public class User {
-    private String userID, email, displayName, activityLevel, experience, workoutType, trainingLocation, muscleFocus; //BEGINNER, NOVICE, INTERMEDIATE, ADVANCED, ELITE
+    private String userID, email, displayName, activityLevel, experience, workoutType, trainingLocation, muscleFocus, weightGoal; //BEGINNER, NOVICE, INTERMEDIATE, ADVANCED, ELITE
     private Boolean man;
     private Double weight, height, bodyFat = 0.0; //weight in kg, height in cm
-    private Integer age, tdee, days;
+    private Integer age, tdee, days, completedWorkouts;
     private ArrayList<Workout> routine;
 
 
@@ -19,7 +19,7 @@ public class User {
         this.email = account.getEmail();
         this.displayName = account.getDisplayName();
     }
-    public User(FirebaseUser account, String activityLevel, String experience, Boolean man, Double weight, Double height, Integer age, Integer days){
+    public User(FirebaseUser account, String activityLevel, String experience, Boolean man, Double weight, Double height, Integer age, String goal){
         this.userID = account.getUid();
         this.email = account.getEmail();
         this.displayName = account.getDisplayName();
@@ -29,9 +29,11 @@ public class User {
         this.weight = weight; //in kg
         this.height = height; //in cm
         this.age = age;
-        this.tdee = calculateTDEE();
+        this.weightGoal = goal;
+        this.tdee = 0;
+        this.completedWorkouts = 0;
     }
-    public User(FirebaseUser account, String activityLevel, String experience, Boolean man, Double weight, Double height, Double bodyFat, Integer age, Integer days){
+    public User(FirebaseUser account, String activityLevel, String experience, Boolean man, Double weight, Double height, Double bodyFat, Integer age, String goal){
         this.userID = account.getUid();
         this.email = account.getEmail();
         this.displayName = account.getDisplayName();
@@ -42,10 +44,12 @@ public class User {
         this.height = height; //in cm
         this.bodyFat = bodyFat;
         this.age = age;
-        this.tdee = calculateTDEE();
+        this.weightGoal = goal;
+        this.tdee = 0;
+        this.completedWorkouts = 0;
     }
 
-    public Integer calculateTDEE(){ //weight in kg, height in pounds
+    public Integer calculateTDEE(){ //weight in kg, height in cm
         double bmr = 0, adjustedWeight;
         Integer returnValue = 0;
 
@@ -56,14 +60,26 @@ public class User {
         if(man) bmr = 66 + (13.7 * adjustedWeight) + (5 * height) - (6.8 * age);
         else bmr = 655 + (9.6 * adjustedWeight) + (1.8 * height) - (4.7 * age);
 
-        switch (activityLevel){
-            case Constants.SEDENTARY: bmr = bmr * 1.2;
-            case Constants.LIGHTLY: bmr = bmr * 1.375;
-            case Constants.MODERATELY: bmr = bmr * 1.55;
-            case Constants.VERY: bmr = bmr * 1.725;
-            case Constants.EXTREMELY: bmr = bmr * 1.9;
+        int temp = days;
+
+        switch (activityLevel) {
+            case Constants.LIGHTLY:
+                temp += 2;
+                break;
+            case Constants.MODERATELY:
+                temp += 4;
+                break;
+            case Constants.VERY:
+                temp += 6;
+                break;
         }
+        if(temp<3) bmr = bmr * 1.2;
+        else if(temp<6) bmr = bmr * 1.375;
+        else if (temp<9) bmr = bmr * 1.55;
+        else if(temp>=9) bmr = bmr * 1.725;
         returnValue = Integer.valueOf(((Long) (Math.round(bmr))).toString());
+        if(weightGoal.equals(Constants.LOSE)) returnValue = returnValue - 500;
+        else if(weightGoal.equals(Constants.GAIN)) returnValue = returnValue + 500;
         return returnValue;
     }
 
@@ -115,15 +131,27 @@ public class User {
     public void setMuscleFocus(String muscleFocus) {
         this.muscleFocus = muscleFocus;
     }
-
     public ArrayList<Workout> getRoutine() {
         return routine;
+    }
+
+    public Integer getCompletedWorkouts() {
+        return completedWorkouts;
+    }
+
+    public void setCompletedWorkouts(Integer completedWorkouts) {
+        this.completedWorkouts = completedWorkouts;
     }
 
     public void setRoutine(ArrayList<Workout> routine) {
         this.routine = routine;
     }
-
+    public String getWeightGoal() {
+        return weightGoal;
+    }
+    public void setWeightGoal(String weightGoal) {
+        this.weightGoal = weightGoal;
+    }
     public String getWorkoutType() {
         return workoutType;
     }

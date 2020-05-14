@@ -1,15 +1,10 @@
 <resources>
-    <string name="app_name">MyPersonalTrainer</string>
-    <string name="title_activity_home">Home</string>
-    <string name="title_activity_sign_in">Sign In</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="app_name">TriFit</string>
+    <string name="sign_in_long">Continue With Google</string>
+    <string name="sign_in_greet">It\'s easier than ever!</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
     <string name="title_activity_setup1">Setup1</string>
     <string name="kilos">Kilograms</string>
     <string name="pounds">Pounds</string>
@@ -17,7 +12,7 @@
     <string name="inches">Inches</string>
     <string name="cm">Centimetres</string>
     <string name="height">Height</string>
-    <string name="activity_level">Activity Level</string>
+    <string name="activity_level">Lifestyle Activity Level</string>
     <string name="bf_optional">Body Fat Percentage (optional)</string>
     <string name="exp">Experience</string>
     <string name="submit">Submit</string>
@@ -26,10 +21,31 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="sign_out">Sign Out</string>
-
+    <string name="weight_goal">Weight Goal</string>
+    <string name="rci">Recommended Caloric Intake</string>
+    <string name="streak">Workouts Completed</string>
     <string name="first_greet">Let\'s get to know you better!</string>
-
-
+    <string name="muscle_focus_greet">Select an area you think needs some special attention!</string>
+    <string name="workout_pref_greet">Select your preferences for your personalized!</string>
+    <string name="mark_complete">Completed</string>
+    <string name="workout_type">Workout Type</string>
+    <string name="train_loc">Workout Equipment</string>
+    <string name="workout_days">Workout Days</string>
+    <string name="muscle_focus">Target Muscle</string>
+    <string name="profile_msg">Edit your info or routine preferences here!</string>
+    <string-array name="muscle_groups">
+        <item>Shoulders</item>
+        <item>Chest</item>
+        <item>Biceps</item>
+        <item>Triceps</item>
+        <item>Back</item>
+        <item>Abs</item>
+        <item>Butt</item>
+        <item>Quads</item>
+        <item>Hamstrings</item>
+        <item>Calves</item>
+        <item>None</item>
+    </string-array>
     <string-array name="days">
         <item>2</item>
         <item>3</item>
@@ -39,10 +55,9 @@
     </string-array>
     <string-array name="activity_levels">
         <item>Sedentary</item>
-        <item>Light Exercise (1-2 days/week)</item>
-        <item>Moderate Exercise (3-5 days/week)</item>
-        <item>Heavy Exercise (6-7 days/week)</item>
-        <item>Athlete (2x /day)</item>
+        <item>Lightly Active</item>
+        <item>Moderately Active</item>
+        <item>Very Active</item>
     </string-array>
     <string-array name="experience">
         <item>Beginner</item>
@@ -53,13 +68,13 @@
     </string-array>
     <string-array name="workout_location">
         <item>Gym</item>
+        <item>Dumbbell</item>
         <item>Body Weight</item>
-        <item>Free Weights</item>
     </string-array>
     <string-array name="gym_options">
         <item>Power</item>
-        <item>Hypertrophy</item>
         <item>Endurance</item>
+        <item>Hypertrophy</item>
     </string-array>
     <string-array name="body_options">
         <item>Power/Hypertrophy</item>
@@ -67,31 +82,24 @@
     </string-array>
     <string-array name="free_options">
         <item>Power</item>
-        <item>Hypertrophy</item>
         <item>Endurance</item>
+        <item>Hypertrophy</item>
     </string-array>
-    <string-array name="gym_pow">
+    <string-array name="weight_goals">
+        <item>Maintain Weight</item>
+        <item>Lose Weight</item>
+        <item>Gain Weight</item>
+    </string-array>
 
-    </string-array>
-    <string-array name="gym_hyp">
+    <string name="shoulders">Shoulders</string>
+    <string name="chest">Chest</string>
+    <string name="biceps">Biceps</string>
+    <string name="triceps">Triceps</string>
+    <string name="back">Back</string>
+    <string name="abs">Abs</string>
+    <string name="glutes">Glutes</string>
+    <string name="quads">Quads</string>
+    <string name="hamstrings">Hamstrings</string>
+    <string name="calves">Calves</string>
 
-    </string-array>
-    <string-array name="gym_end">
-
-    </string-array>
-    <string-array name="body_powhyp">
-
-    </string-array>
-    <string-array name="body_end">
-
-    </string-array>
-    <string-array name="free_pow">
-
-    </string-array>
-    <string-array name="free_hyp">
-
-    </string-array>
-    <string-array name="free_end">
-
-    </string-array>
 </resources>

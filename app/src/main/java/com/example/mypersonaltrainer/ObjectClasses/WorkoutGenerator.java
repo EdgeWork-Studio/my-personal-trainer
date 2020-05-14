@@ -39,7 +39,7 @@ public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleto
         exercises=eBank.getExercise(exercises, Constants.CHEST, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
-        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 1"));
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 1: " + trainingLocation));
         exercises.clear();
         exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.CHEST, trainingLocation);
@@ -47,7 +47,7 @@ public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleto
         exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.CALVES, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
-        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 2"));
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 2: " + trainingLocation));
         return routine;
     }
 
@@ -57,7 +57,7 @@ public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleto
         exercises=eBank.getExercise(exercises, Constants.CHEST, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.HAM, trainingLocation);
         exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
-        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 1"));
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 1: " + trainingLocation));
         exercises.clear();
         exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.HAM, trainingLocation);
@@ -65,7 +65,7 @@ public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleto
         exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
         exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.TRICEPS, trainingLocation);
-        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 2"));
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 2: " + trainingLocation));
         exercises.clear();
         exercises=eBank.getExercise(exercises, Constants.QUADS, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.CHEST, trainingLocation);
@@ -73,7 +73,7 @@ public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleto
         exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
         exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.BICEPS, trainingLocation);
-        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 3"));
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 3: " + trainingLocation));
         return routine;
     }
 
@@ -87,7 +87,7 @@ public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleto
             exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
             exercises=eBank.getExercise(exercises, Constants.BICEPS, trainingLocation);
             exercises=eBank.getExercise(exercises, Constants.TRICEPS, trainingLocation);
-            title = "Day " + i + ": Upper";
+            title = "Day " + i + ": Upper " + trainingLocation;
             routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), title));
             exercises.clear();
             exercises=eBank.getExercise(exercises, Constants.QUADS, trainingLocation);
@@ -97,7 +97,7 @@ public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleto
             exercises=eBank.getExercise(exercises, Constants.QUADS, trainingLocation);
             exercises=eBank.getExercise(exercises, Constants.HAM, trainingLocation);
             exercises=eBank.getExercise(exercises, Constants.CALVES, trainingLocation);
-            title = "Day " + (i+1) + ": Lower";
+            title = "Day " + (i+1) + ": Lower " + trainingLocation;
             routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), title));
             exercises.clear();
         }
@@ -112,7 +112,7 @@ public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleto
             exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.BICEPS, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.TRICEPS, trainingLocation);
-        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 1: Upper"));
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 1: Upper " + trainingLocation));
         exercises.clear();
         exercises=eBank.getExercise(exercises, Constants.QUADS, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.HAM, trainingLocation);
@@ -121,14 +121,15 @@ public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleto
         exercises=eBank.getExercise(exercises, Constants.CALVES, trainingLocation);
         if((targetArea.equals(Constants.QUADS) || targetArea.equals(Constants.HAM) || targetArea.equals(Constants.CALVES) || targetArea.equals(Constants.BUTT) || targetArea.equals(Constants.ABS)))
             exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
-        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 2: Lower"));
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 2: Lower " + trainingLocation));
+        exercises.clear();
         exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.BACK, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
         if((targetArea.equals(Constants.BACK) || targetArea.equals(Constants.SHOULDERS)))
             exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
-        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 3: Back/Shoulders"));
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 3: Back/Shoulders " + trainingLocation));
         exercises.clear();
         exercises=eBank.getExercise(exercises, Constants.QUADS, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.HAM, trainingLocation);
@@ -137,7 +138,7 @@ public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleto
         exercises=eBank.getExercise(exercises, Constants.CALVES, trainingLocation);
         if((targetArea.equals(Constants.QUADS) || targetArea.equals(Constants.HAM) || targetArea.equals(Constants.CALVES) || targetArea.equals(Constants.BUTT) || targetArea.equals(Constants.ABS)))
             exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
-        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 4: Lower"));
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 4: Lower " + trainingLocation));
         exercises.clear();
         exercises=eBank.getExercise(exercises, Constants.CHEST, trainingLocation);
         exercises=eBank.getExercise(exercises, Constants.CHEST, trainingLocation);
@@ -145,7 +146,7 @@ public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleto
         exercises=eBank.getExercise(exercises, Constants.TRICEPS, trainingLocation);
         if((targetArea.equals(Constants.CHEST) || targetArea.equals(Constants.BICEPS) || targetArea.equals(Constants.TRICEPS)))
             exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
-        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 5: Back/Shoulders"));
+        routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day 5: Back/Shoulders " + trainingLocation));
         return routine;
     }
 
@@ -158,7 +159,7 @@ public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleto
             exercises=eBank.getExercise(exercises, Constants.BICEPS, trainingLocation);
             if((targetArea.equals(Constants.BACK) || targetArea.equals(Constants.BICEPS)))
                 exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
-            routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day " + (1+(3*i)) + ": Pull"));
+            routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day " + (1+(3*i)) + ": Pull " + trainingLocation));
             exercises.clear();
             exercises=eBank.getExercise(exercises, Constants.CHEST, trainingLocation);
             exercises=eBank.getExercise(exercises, Constants.SHOULDERS, trainingLocation);
@@ -167,7 +168,7 @@ public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleto
             exercises=eBank.getExercise(exercises, Constants.TRICEPS, trainingLocation);
             if((targetArea.equals(Constants.CHEST) || targetArea.equals(Constants.SHOULDERS)))
                 exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
-            routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day " + (2+(3*i)) + ": Push"));
+            routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day " + (2+(3*i)) + ": Push " + trainingLocation));
             exercises.clear();
             exercises=eBank.getExercise(exercises, Constants.QUADS, trainingLocation);
             exercises=eBank.getExercise(exercises, Constants.HAM, trainingLocation);
@@ -176,133 +177,11 @@ public class WorkoutGenerator { //TODO make WorkoutGenerator class into singleto
             exercises=eBank.getExercise(exercises, Constants.CALVES, trainingLocation);
             if((targetArea.equals(Constants.QUADS) || targetArea.equals(Constants.HAM) || targetArea.equals(Constants.CALVES) || targetArea.equals(Constants.BUTT) || targetArea.equals(Constants.ABS)))
                 exercises=eBank.getExercise(exercises, targetArea, trainingLocation);
-            routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day " + (3+(3*i)) + ": Legs"));
+            routine.add(new Workout((ArrayList<Exercise>) exercises.clone(), "Day " + (3+(3*i)) + ": Legs " + trainingLocation));
             exercises.clear();
         }
         return routine;
     }
 
 
-    private String getSetsAndReps(User user, Exercise e){
-        String experience = user.getExperience();
-        if(e.getLocationType().equals(Constants.GYM)){
-            if(e.getType().equals(Constants.POWER)){
-                switch (experience) {
-                    case Constants.BEGIN:
-                        return "3x8";
-                    case Constants.NOVICE:
-                        return "3x5";
-                    case Constants.INTER:
-                        return "4x5";
-                    case Constants.ADVAN:
-                        return "5x5";
-                    case Constants.ELITE:
-                        return "5x5";
-                }
-            }
-            else if(e.getType().equals(Constants.HYPER)){
-                switch (experience) {
-                    case Constants.BEGIN:
-                        return "3x10";
-                    case Constants.NOVICE:
-                        return "3x12";
-                    case Constants.INTER:
-                        return "4x12";
-                    case Constants.ADVAN:
-                        return "4x12";
-                    case Constants.ELITE:
-                        return "4x12";
-                }
-            }
-            else if(e.getType().equals(Constants.ENDU)) {
-                switch (experience) {
-                    case Constants.BEGIN:
-                        return "3x15";
-                    case Constants.NOVICE:
-                        return "4x15";
-                    case Constants.INTER:
-                        return "4x20";
-                    case Constants.ADVAN:
-                        return "5x18";
-                    case Constants.ELITE:
-                        return "5x20";
-                }
-            }
-        }
-        else if(e.getLocationType().equals(Constants.BODY)){
-            if(e.getType().equals(Constants.POW_HYPE)){
-                switch (experience) {
-                    case Constants.BEGIN:
-                        return "3x8";
-                    case Constants.NOVICE:
-                        return "3x5";
-                    case Constants.INTER:
-                        return "4x5";
-                    case Constants.ADVAN:
-                        return "5x5";
-                    case Constants.ELITE:
-                        return "5x5";
-                }
-            }
-            else if(e.getType().equals(Constants.ENDU)) {
-                switch (experience) {
-                    case Constants.BEGIN:
-                        return "3x15";
-                    case Constants.NOVICE:
-                        return "4x15";
-                    case Constants.INTER:
-                        return "4x20";
-                    case Constants.ADVAN:
-                        return "5x18";
-                    case Constants.ELITE:
-                        return "5x20";
-                }
-            }
-        }
-        else if(e.getLocationType().equals(Constants.DUMB)){
-            if(e.getType().equals(Constants.POWER)){
-                switch (experience) {
-                    case Constants.BEGIN:
-                        return "3x8";
-                    case Constants.NOVICE:
-                        return "3x5";
-                    case Constants.INTER:
-                        return "4x5";
-                    case Constants.ADVAN:
-                        return "5x5";
-                    case Constants.ELITE:
-                        return "5x5";
-                }
-            }
-            else if(e.getType().equals(Constants.HYPER)){
-                switch (experience) {
-                    case Constants.BEGIN:
-                        return "3x10";
-                    case Constants.NOVICE:
-                        return "3x12";
-                    case Constants.INTER:
-                        return "4x12";
-                    case Constants.ADVAN:
-                        return "4x12";
-                    case Constants.ELITE:
-                        return "4x12";
-                }
-            }
-            else if(e.getType().equals(Constants.ENDU)) {
-                switch (experience) {
-                    case Constants.BEGIN:
-                        return "3x15";
-                    case Constants.NOVICE:
-                        return "4x15";
-                    case Constants.INTER:
-                        return "4x20";
-                    case Constants.ADVAN:
-                        return "5x18";
-                    case Constants.ELITE:
-                        return "5x20";
-                }
-            }
-        }
-        return "3x8";
-    }
 }

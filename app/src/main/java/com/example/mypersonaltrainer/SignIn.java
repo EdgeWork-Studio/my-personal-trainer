@@ -2,11 +2,14 @@ package com.example.mypersonaltrainer;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,12 +38,13 @@ public class SignIn extends AppCompatActivity {
         gsc = GoogleSignIn.getClient(this, gso);
         mAuth = FirebaseAuth.getInstance();
     }
-    @Override
+    /*@Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-    }
+    }*/
+
     public void signIn(View view) {
         Intent signInIntent = gsc.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -60,6 +64,9 @@ public class SignIn extends AppCompatActivity {
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
+                TextView tv = findViewById(R.id.txt_sign_in_greet);
+                tv.setText("Sorry something went wrong! Please try again.");
+                tv.setTextColor(ContextCompat.getColor(this, R.color.error));
                 Log.w("blab", "Google sign in failed", e);
                 // ...
             }
@@ -78,7 +85,7 @@ public class SignIn extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("sad", "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            goToSetup();
+                            goToHome();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("hsa", "signInWithCredential:failure", task.getException());
@@ -92,6 +99,10 @@ public class SignIn extends AppCompatActivity {
 
     private void goToSetup(){
         Intent i = new Intent(this, BiometricCollection.class);
+        startActivity(i);
+    }
+    private void goToHome(){
+        Intent i = new Intent(this, Home.class);
         startActivity(i);
     }
 }

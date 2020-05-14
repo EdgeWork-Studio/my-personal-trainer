@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.mypersonaltrainer.ObjectClasses.Constants;
+import com.example.mypersonaltrainer.ObjectClasses.Exercise;
 import com.example.mypersonaltrainer.ObjectClasses.User;
 import com.example.mypersonaltrainer.ObjectClasses.Workout;
 import com.example.mypersonaltrainer.ObjectClasses.WorkoutGenerator;
@@ -20,6 +21,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -37,45 +42,84 @@ public class Home extends AppCompatActivity {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
         gsc = GoogleSignIn.getClient(this, gso);
         if(isSignedIn()){
+            Button btn = findViewById(R.id.btn_profile);
+            Button btn2 = findViewById(R.id.btn_full_workout);
+            btn.setVisibility(View.VISIBLE);
+            btn2.setVisibility(View.VISIBLE);
             mPrefs = getSharedPreferences("user_data", Context.MODE_PRIVATE);
             Gson gson = new Gson();
             String json = mPrefs.getString("user", "user not found");
             if(json.equals("user not found")) goToBioCollec();
             else{
                 user = gson.fromJson(json, User.class);
-                TextView tv = findViewById(R.id.textView2);
-                ArrayList<Workout> workout = user.getRoutine();
-                if(workout==null){
-                    WorkoutGenerator wg = new WorkoutGenerator(getApplicationContext());
-                    getResources().openRawResource(R.raw.exercises);
-                    workout = wg.getRoutine(user.getDays(), user.getTrainingLocation(), user.getMuscleFocus());
-                    user.setRoutine(workout);
+                //user.setCompletedWorkouts(0);
+                if(user.getMuscleFocus() == null) goToBioCollec();
+                else{
+                    ArrayList<Workout> workout = user.getRoutine();
+                    if(workout==null){
+                        WorkoutGenerator wg = new WorkoutGenerator(getApplicationContext());
+                        getResources().openRawResource(R.raw.exercises);
+                        workout = wg.getRoutine(user.getDays(), user.getTrainingLocation(), user.getMuscleFocus());
+                        user.setRoutine(workout);
+                    }
                 }
-                String test = "";
-                for (Workout w: workout)
-                    test += w.toString();
-                tv.setText(test);
+                TextView tv = findViewById(R.id.val_rci);
+                String tdee = "~" + user.getTdee();
+                tv.setText(tdee);
             }
         }
         else goToSignIn();
     }
+    @Override
+    public void onResume(){
+        super.onResume();
+        if(isSignedIn()) {
+            if(user!=null && user.getMuscleFocus()!=null){
+                updateCurrentWorkout();
+                TextView tv = findViewById(R.id.val_rci);
+                String tdee = "~" + user.getTdee();
+                tv.setText(tdee);
+                tv = findViewById(R.id.val_streak);
+                tv.setText(user.getCompletedWorkouts()+"");
+            }
+            else goToBioCollec();
+        }
+        else goToSignIn();
+    }
 
+    public void markComplete(View view){
+        user.setCompletedWorkouts(user.getCompletedWorkouts()+1);
+        TextView tv = findViewById(R.id.val_streak);
+        tv.setText(user.getCompletedWorkouts()+"");
+        updateCurrentWorkout();
+        Gson gson = new Gson();
+        String json = gson.toJson(user);
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        prefsEditor.putString("user", json);
+        prefsEditor.commit();
+    }
     public void clearPrefs(View view){
         mPrefs.edit().remove("user").commit();
-        String json = mPrefs.getString("user", "user not found");
-        TextView tv = findViewById(R.id.textView2);
-        tv.setText(json);
         goToBioCollec();
     }
 
-    public void signOut(View view) {
-        gsc.signOut()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        goToSignIn();
-                    }
-                });
+    public void goToProfile(View view){
+        Intent i = new Intent(this, Profile.class);
+        startActivity(i);
+    }
+
+    private void updateCurrentWorkout(){
+        ListView lv = findViewById(R.id.list_curr_workout);
+        ArrayList<String> exercises = new ArrayList<>();
+        Workout workout = user.getRoutine().get(user.getCompletedWorkouts()%user.getDays());
+        exercises.add(workout.getTitle());
+        for(Exercise e:(ArrayList<Exercise>) workout.getWorkout()){
+            if(e==null) exercises.add("add more exercises lazy dev");
+            else
+                exercises.add(e.getSetsAndReps(user.getExperience(), user.getWorkoutType()) + "\t \t \t" + e.getName());
+        }
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, exercises);
+        lv.setAdapter(arrayAdapter);
     }
 
     private void goToSignIn(){
@@ -91,5 +135,11 @@ public class Home extends AppCompatActivity {
     private boolean isSignedIn(){
         return GoogleSignIn.getLastSignedInAccount(getApplicationContext()) != null;
     }
+
+    public void goToWorkoutScreen(View view){
+        Intent i = new Intent(this, WorkoutScreen.class);
+        startActivity(i);
+    }
+
 
 }

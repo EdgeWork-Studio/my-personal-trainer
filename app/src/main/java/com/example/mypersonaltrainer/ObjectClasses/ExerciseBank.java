@@ -63,7 +63,6 @@ public class ExerciseBank
                         default: temp = unknown; break;
                     }
                     Exercise e = new Exercise(name, type, locationType, primary, secondary);
-                    System.out.println(e);
                     temp.add(e);
                 }
 
@@ -92,27 +91,23 @@ public class ExerciseBank
 
 
     public ArrayList<Exercise> getXExercise(ArrayList<Exercise> exercises, ArrayList<Exercise> exerciseBank, String locationType){
-        ArrayList<Exercise> exercises2 = (ArrayList) exerciseBank.clone();
-        System.out.println(exercises2.get(0));
-        if(locationType.equals(Constants.GYM)){
-            for(Exercise e: exercises){
-                if(exercises2.contains(e)) exercises2.remove(e);
-            }
-        }
-        else if(locationType.equals(Constants.DUMB)){
-            for(Exercise e: exercises){
-                if(e.getLocationType().equals(Constants.GYM)) exercises2.remove(e);
-                else if(exercises2.contains(e)) exercises2.remove(e);
-            }
-        }
-        else if(locationType.equals(Constants.BODY)){
-            for(Exercise e: exercises){
-                if(e.getLocationType().equals(Constants.GYM) || e.getLocationType().equals(Constants.DUMB)) exercises2.remove(e);
-                else if(exercises2.contains(e)) exercises2.remove(e);
+        ArrayList<Exercise> exercises2 = new ArrayList<>();
+        for(Exercise e: exerciseBank){
+            if(!exercises.contains(e)){
+                if(locationType.equals(Constants.GYM))
+                    exercises2.add(e);
+                else if(locationType.equals(Constants.DUMB)){
+                    if(!e.getLocationType().equals(Constants.GYM))
+                        exercises2.add(e);
+                }
+                else if(locationType.equals(Constants.BODY)){
+                    if(e.getLocationType().equals(Constants.BODY))
+                        exercises2.add(e);
+                }
             }
         }
         Exercise e =null;
-        while(e == null){
+        while(e == null && !exercises2.isEmpty()){
             e = exercises2.get(random.nextInt(exercises2.size()));
             if(exercises2.size()<=1) break;
             int targetCount = 0, typeCount = 0;

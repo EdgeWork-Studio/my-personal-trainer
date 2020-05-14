@@ -6,7 +6,7 @@ import java.util.List;
 public class Workout
 {
     private String title;
-    private List<Exercise> exercises;
+    private ArrayList<Exercise> exercises;
     public Workout()
     {
         exercises = new ArrayList<Exercise>();
@@ -27,7 +27,11 @@ public class Workout
         this.title = title;
     }
 
-    public List getWorkout()
+    public String getTitle() {
+        return title;
+    }
+
+    public ArrayList getWorkout()
     {
         return exercises;
     }
