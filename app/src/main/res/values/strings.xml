@@ -33,6 +33,8 @@
     <string name="workout_days">Workout Days</string>
     <string name="muscle_focus">Target Muscle</string>
     <string name="profile_msg">Edit your info or routine preferences here!</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="full_routine">Your Full Routine</string>
     <string-array name="muscle_groups">
         <item>Shoulders</item>
         <item>Chest</item>
