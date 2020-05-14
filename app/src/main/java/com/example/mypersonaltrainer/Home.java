@@ -66,6 +66,8 @@ public class Home extends AppCompatActivity {
                 TextView tv = findViewById(R.id.val_rci);
                 String tdee = "~" + user.getTdee();
                 tv.setText(tdee);
+                tv = findViewById(R.id.txt_welcome);
+                tv.setText("Welcome back, " + user.getDisplayName() + ", here's your next workout.");
             }
         }
         else goToSignIn();
