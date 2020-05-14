@@ -8,16 +8,29 @@
     android:orientation="vertical"
     tools:context=".BiometricCollection">
 
-    <ImageView
-        android:id="@+id/img_logo"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:focusableInTouchMode="true"
-        app:srcCompat="@drawable/logo_with_text" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="@color/navBarColor"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/toolbar_logo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_margin="8dp"
         android:layout_weight="1">
 
         <LinearLayout
@@ -29,7 +42,9 @@
                 android:id="@+id/txt_bio_greet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/first_greet" />
+                android:layout_marginBottom="8dp"
+                android:text="@string/first_greet"
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"

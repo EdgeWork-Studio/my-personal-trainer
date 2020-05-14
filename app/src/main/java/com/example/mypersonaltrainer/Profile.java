@@ -178,8 +178,7 @@ public class Profile extends AppCompatActivity {
     }
 
     private void returnToHome(){
-        Intent i = new Intent(this, Home.class);
-        startActivity(i);
+        finish();
     }
 
     public void saveChanges(View view){

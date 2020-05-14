@@ -84,4 +84,8 @@ public class WorkoutPrefCollection extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void returnToBioCollec(View view){
+        finish();
+    }
+
 }

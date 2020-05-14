@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -41,10 +42,10 @@ public class Home extends AppCompatActivity {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
         gsc = GoogleSignIn.getClient(this, gso);
         if(isSignedIn()){
-            ImageButton ib = findViewById(R.id.btn_profile);
-            ImageButton ib2 = findViewById(R.id.btn_full_workout);
-            ib.setVisibility(View.VISIBLE);
-            ib2.setVisibility(View.VISIBLE);
+            Button btn = findViewById(R.id.btn_profile);
+            Button btn2 = findViewById(R.id.btn_full_workout);
+            btn.setVisibility(View.VISIBLE);
+            btn2.setVisibility(View.VISIBLE);
             mPrefs = getSharedPreferences("user_data", Context.MODE_PRIVATE);
             Gson gson = new Gson();
             String json = mPrefs.getString("user", "user not found");

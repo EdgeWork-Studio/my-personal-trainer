@@ -45,6 +45,7 @@
         android:id="@+id/textView3"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="@string/muscle_focus_greet"
         android:textAlignment="center"
         android:textSize="20sp" />
