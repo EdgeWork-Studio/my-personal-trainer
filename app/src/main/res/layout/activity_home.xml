@@ -19,12 +19,12 @@
 
         <Button
             android:id="@+id/btn_profile"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_marginTop="6dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="4dp"
-            android:background="@drawable/edit"
+            android:background="@drawable/person"
             android:onClick="goToProfile"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,12 +32,12 @@
 
         <Button
             android:id="@+id/btn_full_workout"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="49dp"
+            android:layout_height="49dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
-            android:background="@drawable/weight"
+            android:background="@drawable/gym"
             android:onClick="goToWorkoutScreen"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
