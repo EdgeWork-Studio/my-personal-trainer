@@ -58,19 +58,27 @@
 
             <TextView
                 android:id="@+id/txt_profile"
-                android:layout_width="match_parent"
+                android:layout_width="313dp"
                 android:layout_height="wrap_content"
-                android:text="@string/profile_msg" />
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/profile_msg"
+                android:textAlignment="center"
+                android:textSize="20sp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="371dp"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/sex" />
+                    android:text="@string/sex"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="18sp"/>
 
                 <RadioGroup
                     android:layout_width="wrap_content"
@@ -83,7 +91,8 @@
                         android:layout_height="wrap_content"
                         android:checked="true"
                         android:text="@string/male"
-                        android:textColor="#FFFFFF" />
+                        android:textColor="#FFFFFF"
+                        android:layout_marginLeft="20dp"/>
 
                     <RadioButton
                         android:id="@+id/radio_female"
@@ -101,16 +110,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/age" />
-
-                <EditText
-                    android:id="@+id/input_age"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/textColor"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:textColor="@color/textColor" />
+                    android:text="@string/age"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"/>
 
             </LinearLayout>
 
@@ -118,6 +121,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/input_age"
+                    android:layout_width="353dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:backgroundTint="@color/textColor"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textColor="@color/textColor"
+                    android:layout_marginBottom="10dp"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -127,7 +141,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/weight" />
+                        android:text="@string/weight"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="18sp"/>
 
                     <RadioGroup
                         android:layout_width="match_parent"
@@ -141,7 +157,8 @@
                             android:layout_weight="1"
                             android:checked="true"
                             android:text="@string/pounds"
-                            android:textColor="#FFFFFF" />
+                            android:textColor="#FFFFFF"
+                            android:layout_marginLeft="20dp"/>
 
                         <RadioButton
                             android:layout_width="wrap_content"
@@ -156,8 +173,10 @@
 
                 <EditText
                     android:id="@+id/input_weight"
-                    android:layout_width="wrap_content"
+                    android:layout_width="356dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginBottom="10dp"
                     android:backgroundTint="@color/textColor"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -178,7 +197,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/height" />
+                        android:text="@string/height"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="18sp"/>
 
                     <RadioGroup
                         android:layout_width="match_parent"
@@ -192,7 +213,8 @@
                             android:layout_height="wrap_content"
                             android:checked="true"
                             android:text="@string/inches"
-                            android:textColor="#FFFFFF" />
+                            android:textColor="#FFFFFF"
+                            android:layout_marginLeft="20dp"/>
 
                         <RadioButton
                             android:layout_width="wrap_content"
@@ -205,13 +227,15 @@
 
                 <EditText
                     android:id="@+id/input_height"
-                    android:layout_width="wrap_content"
+                    android:layout_width="356dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/textColor"
                     android:ems="10"
                     android:inputType="numberDecimal"
-                    android:textColor="@color/textColor" />
+                    android:textColor="@color/textColor"
+                    android:layout_marginBottom="10dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -222,16 +246,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="@string/weight_goal" />
+                    android:text="@string/weight_goal"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="18sp"/>
 
-                <Spinner
-                    android:id="@+id/spn_weight_goal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/textColor"
-                    android:entries="@array/weight_goals" />
             </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spn_weight_goal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/textColor"
+                android:entries="@array/weight_goals"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -241,16 +272,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="@string/activity_level" />
+                    android:text="@string/activity_level"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="18sp"/>
 
-                <Spinner
-                    android:id="@+id/spn_activity"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/textColor"
-                    android:entries="@array/activity_levels" />
             </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spn_activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/textColor"
+                android:entries="@array/activity_levels"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -259,97 +297,47 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/bf_optional" />
+                    android:text="@string/bf_optional"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="18sp"/>
 
-                <EditText
-                    android:id="@+id/input_body_fat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/textColor"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:textColor="@color/textColor" />
             </LinearLayout>
+
+            <EditText
+                android:id="@+id/input_body_fat"
+                android:layout_width="356dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:backgroundTint="@color/textColor"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:textColor="@color/textColor" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:text="@string/exp" />
-
-                <Spinner
-                    android:id="@+id/spn_experience"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/textColor"
-                    android:entries="@array/experience" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:text="@string/train_loc" />
-
-                <Spinner
-                    android:id="@+id/spn_trainloc"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/textColor"
-                    android:entries="@array/workout_location" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:text="@string/workout_type" />
-
-                <Spinner
-                    android:id="@+id/spn_worktype"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/textColor"
-                    android:clickable="false" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:text="@string/workout_days" />
-
-                <Spinner
-                    android:id="@+id/spn_workday"
-                    android:layout_width="match_parent"
+                    android:layout_width="546dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/textColor"
-                    android:entries="@array/days" />
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="2"
+                    android:text="@string/exp"
+                    android:textSize="18sp" />
+
             </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spn_experience"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/textColor"
+                android:entries="@array/experience"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -357,19 +345,106 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="543dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="2"
+                    android:text="@string/train_loc"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spn_trainloc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/textColor"
+                android:entries="@array/workout_location"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="540dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="2"
+                    android:text="@string/workout_type"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spn_worktype"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/textColor"
+                android:clickable="false"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="543dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="2"
+                    android:text="@string/workout_days"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spn_workday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/textColor"
+                android:entries="@array/days"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="540dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="@string/muscle_focus" />
+                    android:text="@string/muscle_focus"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="18sp" />
 
-                <Spinner
-                    android:id="@+id/spn_muscleFocus"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/textColor"
-                    android:entries="@array/muscle_groups" />
             </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spn_muscleFocus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/textColor"
+                android:entries="@array/muscle_groups"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"/>
 
         </LinearLayout>
     </ScrollView>
@@ -397,4 +472,5 @@
             android:textColor="@color/common_google_signin_btn_text_dark_focused" />
 
     </LinearLayout>
+
 </LinearLayout>

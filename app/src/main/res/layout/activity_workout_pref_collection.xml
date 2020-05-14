@@ -52,9 +52,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:text="@string/workout_pref_greet"
-                android:textSize="18sp" />
+                android:textSize="20sp"
+                android:textAlignment="center"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -65,17 +69,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="@string/workout_days" />
+                    android:text="@string/workout_days"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="20dp"/>
 
-                <Spinner
-                    android:id="@+id/spn_workday"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="#FFFFFF"
-                    android:entries="@array/days"
-                    android:hapticFeedbackEnabled="false" />
             </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spn_workday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#FFFFFF"
+                android:entries="@array/days"
+                android:hapticFeedbackEnabled="false"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -86,17 +97,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="@string/train_loc" />
-
-                <Spinner
-                    android:id="@+id/spn_trainloc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="#FFFFFF"
-                    android:entries="@array/workout_location" />
+                    android:text="@string/train_loc"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="20dp"/>
 
             </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spn_trainloc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#FFFFFF"
+                android:entries="@array/workout_location"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -107,17 +124,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="@string/workout_type" />
-
-                <Spinner
-                    android:id="@+id/spn_worktype"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:backgroundTint="#FFFFFF"
-                    android:clickable="false" />
+                    android:text="@string/workout_type"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="20dp"/>
 
             </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spn_worktype"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="#FFFFFF"
+                android:clickable="false"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"/>
 
         </LinearLayout>
     </ScrollView>

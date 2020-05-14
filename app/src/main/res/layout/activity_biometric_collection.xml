@@ -27,8 +27,8 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="392dp"
+        android:layout_height="668dp"
         android:layout_margin="8dp"
         android:layout_weight="1">
 
@@ -41,10 +41,11 @@
                 android:id="@+id/txt_bio_greet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
                 android:text="@string/first_greet"
-                android:textSize="18sp" />
-
+                android:textAlignment="center"
+                android:textSize="23sp" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -53,27 +54,15 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/sex" />
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/sex"
+                    android:textSize="18sp" />
 
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <RadioButton
-                        android:id="@+id/radio_male"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:text="@string/male"
-                        android:textColor="@color/textColor" />
-
-                    <RadioButton
-                        android:id="@+id/radio_female"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/female"
-                        android:textColor="@color/textColor" />
                 </RadioGroup>
             </LinearLayout>
 
@@ -82,15 +71,37 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <RadioButton
+                    android:id="@+id/radio_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:checked="true"
+                    android:text="@string/male"
+                    android:textColor="@color/textColor" />
+
+                <RadioButton
+                    android:id="@+id/radio_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="@string/female"
+                    android:textColor="@color/textColor" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/age" />
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/age"
+                    android:textSize="18sp" />
 
                 <EditText
                     android:id="@+id/input_age"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="335dp"
+                    android:layout_height="39dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
                     android:backgroundTint="#FFFFFF"
                     android:ems="10"
                     android:inputType="number"
@@ -111,8 +122,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="12dp"
                         android:layout_weight="1"
-                        android:text="@string/height" />
+                        android:text="@string/height"
+                        android:textSize="18sp" />
 
                     <RadioGroup
                         android:layout_width="match_parent"
@@ -124,6 +138,8 @@
                             android:id="@+id/radio_inches"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="12dp"
                             android:checked="true"
                             android:text="@string/inches"
                             android:textColor="@color/textColor" />
@@ -131,6 +147,7 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
                             android:text="@string/cm"
                             android:textColor="@color/textColor" />
                     </RadioGroup>
@@ -138,8 +155,10 @@
 
                 <EditText
                     android:id="@+id/input_height"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="335dp"
+                    android:layout_height="39dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:backgroundTint="#FFFFFF"
                     android:ems="10"
@@ -160,7 +179,10 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/weight" />
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/weight"
+                        android:textSize="18sp" />
 
                     <RadioGroup
                         android:layout_width="match_parent"
@@ -171,6 +193,8 @@
                             android:id="@+id/radio_pounds"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="12dp"
                             android:layout_weight="1"
                             android:checked="true"
                             android:text="@string/pounds"
@@ -179,6 +203,7 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
                             android:layout_weight="1"
                             android:text="@string/kilos"
                             android:textColor="@color/textColor" />
@@ -188,8 +213,10 @@
 
                 <EditText
                     android:id="@+id/input_weight"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="337dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
                     android:backgroundTint="#FFFFFF"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -197,19 +224,24 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="367dp"
+                android:layout_height="83dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/bf_optional" />
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/bf_optional"
+                    android:textSize="18sp" />
 
                 <EditText
                     android:id="@+id/input_body_fat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="337dp"
+                    android:layout_height="39dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
                     android:backgroundTint="#FFFFFF"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -224,30 +256,40 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/weight_goal" />
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/weight_goal"
+                    android:textSize="18sp" />
 
                 <Spinner
                     android:id="@+id/spn_weight_goal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="337dp"
+                    android:layout_height="37dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
                     android:backgroundTint="#FFFFFF"
                     android:entries="@array/weight_goals" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="369dp"
+                android:layout_height="84dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/activity_level" />
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/activity_level"
+                    android:textSize="18sp" />
 
                 <Spinner
                     android:id="@+id/spn_activity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="337dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
                     android:backgroundTint="#FFFFFF"
                     android:entries="@array/activity_levels" />
             </LinearLayout>
@@ -260,12 +302,17 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/exp" />
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/exp"
+                    android:textSize="18sp" />
 
                 <Spinner
                     android:id="@+id/spn_experience"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="342dp"
+                    android:layout_height="41dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
                     android:backgroundTint="#FFFFFF"
                     android:entries="@array/experience" />
             </LinearLayout>
